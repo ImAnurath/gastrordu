@@ -1,0 +1,16 @@
+# Dependencies / build
+node_modules/
+.next/
+out/
+build/
+
+# Env
+.env
+.env*.local
+
+# Raw image assets (large; kept local for now — see Docs/image-catalog.md)
+Images/
+
+# OS / editor
+.DS_Store
+*.log
