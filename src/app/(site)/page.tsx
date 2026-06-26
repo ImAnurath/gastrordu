@@ -34,14 +34,14 @@ export default function Home() {
       {/* HERO */}
       <section className="relative bg-cream">
         <div className="mx-auto flex max-w-[1240px] flex-wrap items-center justify-between gap-12 px-7 py-[clamp(40px,7vw,84px)]">
-          <div className="max-w-[620px] flex-[1_1_460px]">
+          <div className="min-w-0 max-w-[620px] flex-[1_1_460px]">
             <div className="mb-[22px] font-heading text-[13px] font-bold tracking-[0.28em] text-bronze [animation:heroIn_.7s_ease_both] [animation-delay:.04s]">
               YEDAŞ SUNAR · ORDU İL KÜLTÜR VE TURİZM MÜDÜRLÜĞÜ
             </div>
-            <h1 className="m-0 font-heading text-[clamp(46px,8.5vw,104px)] font-black leading-[.92] tracking-[-.01em] text-navy [animation:heroIn_.7s_ease_both] [animation-delay:.12s]">
+            <h1 className="m-0 font-heading text-[clamp(34px,8.5vw,104px)] font-black leading-[.92] tracking-[-.01em] text-navy [animation:heroIn_.7s_ease_both] [animation-delay:.12s]">
               ORDU<br />GASTRONOMİ
             </h1>
-            <div className="mt-[-4px] font-script text-[clamp(46px,8vw,92px)] font-bold leading-none text-olive [animation:heroIn_.7s_ease_both] [animation-delay:.2s]">
+            <div className="mt-[-4px] font-script text-[clamp(34px,8vw,92px)] font-bold leading-none text-olive [animation:heroIn_.7s_ease_both] [animation-delay:.2s]">
               Festivali
             </div>
             <p className="mt-[26px] max-w-[520px] font-body text-[clamp(17px,1.7vw,20px)] leading-relaxed text-[#3C4A5C] [animation:heroIn_.7s_ease_both] [animation-delay:.3s]">
