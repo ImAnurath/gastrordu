@@ -28,8 +28,9 @@ A reusable **event-site framework** that can host multiple events under differen
 - Editable site content via admin (content is hardcoded — see §4).
 - Multi-event management.
 - Payments/ticketing.
-- Public-facing application status lookup.
-- Real-time websockets (polling is used instead).
+- Real-time websockets — polling is used instead. **FLAGGED: implement immediately post-MVP** (see §15).
+
+Note: public-facing application status lookup **is** in the MVP (see §7.1).
 
 ---
 
@@ -89,6 +90,7 @@ For the MVP, all marketing content is **hardcoded** to ship the application pipe
 | `/haberler` | Haberler (news) | `Haberler.dc.html` |
 | `/iletisim` | İletişim (contact) | `Iletisim.dc.html` |
 | `/basvuru` | Stand application wizard | `Basvuru.dc.html` |
+| `/durum` | Başvuru durumu sorgulama (public status lookup) | — (new, see §7.1) |
 
 **Header nav:** Anasayfa · Festival · Program · Lezzetler · Haberler · İletişim + **Başvuru Yap** CTA. Top bar shows date/venue + socials. Mobile hamburger menu. Active-state styling per current page.
 
@@ -182,6 +184,16 @@ model Application {
 2. **İletişim Bilgileri** — contactPerson, phone, email, address.
 3. **Ürünler & Stant Talepleri** — products, needsElectricity (radio), otherRequests.
 4. **Beyan ve Taahhüt + KVKK** — declaration checkbox + **separate** KVKK consent checkbox + Turnstile widget.
+
+### 7.1 Public status lookup (`/durum`)
+
+Lets an applicant check their application status without an account.
+
+- Applicant enters **`applicationNo`** + a **second verifier**. Because `applicationNo` is sequential and guessable, a second factor is required to prevent enumeration of other applicants' data.
+- **Second factor:** **email OR phone** — either one that matches the record is accepted (most forgiving for applicants). *Configurable; can be tightened later.*
+- Match on `applicationNo` AND (email OR phone) → show **status** (Beklemede / Onaylandı / Reddedildi) and `adminNote` (Açıklama) if present.
+- No match → generic "Başvuru bulunamadı" (never reveal whether the number exists).
+- No new tables; one public route + one server lookup. Turnstile on the lookup form to deter brute-forcing.
 
 ---
 
@@ -280,7 +292,7 @@ Each step is independently testable.
 
 1. **Scaffold** — Next.js + Tailwind + Prisma + design tokens + Header/Footer.
 2. **Public marketing pages** — port 6 designs to React with hardcoded content modules + images.
-3. **Application pipeline** — wizard → Zod → Turnstile → DB write → success screen.
+3. **Application pipeline** — wizard → Zod → Turnstile → DB write → success screen; plus public status lookup (`/durum`).
 4. **Emails + PDF** — Resend confirmation/alert + official-form PDF.
 5. **Admin** — login/session → list (filter/search/poll/export) → detail (status/note/PDF/resend).
 6. **Polish & deploy** — responsive pass, KVKK text, seed data, Vercel + Neon + env + Cloudflare DNS.
@@ -289,11 +301,12 @@ Each step is independently testable.
 
 ## 15. Phase 2 (documented, not built)
 
+- **Real-time websockets** for the admin panel (replace polling with instant push). **FLAGGED: agreed to implement immediately after MVP delivery.**
+- **`applicationNo` format** — revisit once the commissioner confirms the Culture Office's internal numbering convention; currently sequential `YYYY-NNNN`. **FLAGGED so neither of us forgets.**
 - Editable site content via admin (News CRUD + gallery upload; needs blob storage e.g. Vercel Blob).
 - Multi-event framework (Event entity, per-event content/applications).
 - Animation polish (Framer Motion: scroll-reveal, parallax, staggered entrances).
 - KVKK data-retention automation (delete/anonymize after festival).
-- Optional public application-status lookup.
 - Replace placeholder KVKK text with Culture Office official wording (pre-launch).
 
 ---
