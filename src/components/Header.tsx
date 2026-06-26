@@ -30,8 +30,6 @@ export function Header({ active, showTopBar = true }: { active: ActivePage; show
               <span>TAYFUN GÜRSOY PARKI · ORDU</span>
             </div>
             <div className="flex flex-wrap items-center gap-x-[18px] gap-y-2">
-              <a href={`mailto:${festival.email}`} className="text-[#E8EDD9] no-underline">{festival.email}</a>
-              <span className="opacity-40">|</span>
               <a href="#" className="text-[#E8EDD9] no-underline">Instagram</a>
               <a href="#" className="text-[#E8EDD9] no-underline">X</a>
               <a href="#" className="text-[#E8EDD9] no-underline">YouTube</a>
