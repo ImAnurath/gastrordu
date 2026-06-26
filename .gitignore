@@ -9,7 +9,9 @@ build/
 .env*.local
 
 # Raw image assets (large; kept local for now — see Docs/image-catalog.md)
-Images/
+# Anchored to repo root so it does NOT match public/images (git is
+# case-insensitive on Windows/macOS and would otherwise ignore it).
+/Images/
 
 # OS / editor
 .DS_Store

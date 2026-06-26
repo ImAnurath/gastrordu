@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #F4F0E5; color: #16263F; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+::selection { background: #5C7A2E; color: #F4F0E5; }
+
+@keyframes heroIn { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+@keyframes revealUp { from { opacity: 0; transform: translateY(34px); } to { opacity: 1; transform: none; } }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
