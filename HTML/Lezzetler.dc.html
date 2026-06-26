@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Dancing+Script:wght@600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:#F4F0E5;color:#16263F;font-family:'Source Serif 4',Georgia,serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+  ::selection{background:#5C7A2E;color:#F4F0E5;}
+  a{color:inherit;}
+  @keyframes revealUp{from{opacity:0;transform:translateY(34px);}to{opacity:1;transform:none;}}
+  @media (prefers-reduced-motion:reduce){*{animation:none !important;}}
+</style>
+</helmet>
+<div style="background:#F4F0E5;">
+  <dc-import name="Header" active="lezzetler" hint-size="100%,120px"></dc-import>
+
+  <section style="background:#16263F;color:#EDE7D6;">
+    <div style="max-width:1240px;margin:0 auto;padding:clamp(44px,5vw,68px) 28px;">
+      <div style="font-family:'Archivo',sans-serif;font-weight:600;font-size:13px;letter-spacing:.14em;color:#9DB36A;margin-bottom:14px;"><a href="Ordu Gastronomi Festivali.dc.html" style="text-decoration:none;color:#9DB36A;">ANASAYFA</a> · LEZZETLER</div>
+      <h1 style="margin:0 0 14px;font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(38px,5.5vw,66px);line-height:1;color:#F4F0E5;">Tescilli & Yöresel Lezzetler</h1>
+      <p style="font-family:'Source Serif 4',serif;font-size:18px;line-height:1.6;color:#B8C2D4;margin:0;max-width:620px;">Fındıktan hamsiye, mıhlamadan karalahanaya; festivalde tadabileceğiniz yöresel lezzetlerden bir seçki.</p>
+    </div>
+  </section>
+
+  <section style="max-width:1240px;margin:0 auto;padding:clamp(56px,7vw,90px) 28px;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:22px;">
+      <sc-for list="{{ flavors }}" as="f" hint-placeholder-count="8">
+        <div style="background:#FCFBF6;border:1px solid #E4DDC9;border-radius:16px;overflow:hidden;transition:transform .25s ease,box-shadow .25s ease;animation:revealUp both;animation-timeline:view();animation-range:entry 0% cover 26%;" style-hover="transform:translateY(-5px);box-shadow:0 18px 34px -22px rgba(22,38,63,.45);">
+          <div style="position:relative;width:100%;aspect-ratio:4/3;background:repeating-linear-gradient(135deg,#E4DDC9,#E4DDC9 11px,#ECE6D6 11px,#ECE6D6 22px);">
+            <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:ui-monospace,monospace;font-size:12px;color:#8A8062;text-align:center;padding:16px;">fotoğraf · {{ f.name }}</span>
+            <span style="position:absolute;top:12px;left:12px;background:#5C7A2E;color:#F7F4EA;font-family:'Archivo',sans-serif;font-weight:700;font-size:11px;letter-spacing:.06em;padding:6px 11px;border-radius:999px;">{{ f.tag }}</span>
+          </div>
+          <div style="padding:20px 22px 24px;">
+            <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:20px;color:#16263F;">{{ f.name }}</div>
+            <div style="font-family:'Source Serif 4',serif;font-size:15px;line-height:1.55;color:#5A6B7E;margin-top:8px;">{{ f.desc }}</div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <dc-import name="Footer" hint-size="100%,360px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      flavors: [
+        { name: 'Ordu Fındığı', tag: 'Coğrafi İşaret', desc: 'Dünyaca ünlü, ince kabuklu Ordu fındığı; festivalin baş tacı.' },
+        { name: 'Karadeniz Pidesi', tag: 'Fırın', desc: 'Tereyağı ve yöresel peynirle açılan kayık biçimli pide.' },
+        { name: 'Mıhlama (Kuymak)', tag: 'Sıcak', desc: 'Mısır unu, tereyağı ve telli peynirin buluştuğu klasik.' },
+        { name: 'Hamsi Tava', tag: 'Deniz', desc: 'Mısır ununa bulanıp kızartılan taze Karadeniz hamsisi.' },
+        { name: 'Karalahana Sarması', tag: 'Yöresel', desc: 'Mısır ve etle harmanlanan kara lahana yaprağı sarması.' },
+        { name: 'Pekmez & Pestil', tag: 'Tatlı', desc: 'Yaylaların güneşinde olgunlaşan geleneksel tatlar.' },
+        { name: 'Kaygana', tag: 'Hamur', desc: 'Yumurta ve unla hazırlanıp fındıkla servis edilen tatlı.' },
+        { name: 'Fındık Ezmesi', tag: 'Atölye', desc: 'Kavrulmuş Ordu fındığından el yapımı ezme.' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
