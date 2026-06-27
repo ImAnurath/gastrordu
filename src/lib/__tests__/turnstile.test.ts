@@ -19,4 +19,18 @@ describe('verifyTurnstile', () => {
     expect(await verifyTurnstile('')).toBe(false)
     expect(f).not.toHaveBeenCalled()
   })
+  it('accepts a token in development when no secret is configured (dev fallback)', async () => {
+    delete process.env.TURNSTILE_SECRET_KEY
+    const f = vi.fn()
+    vi.stubGlobal('fetch', f)
+    expect(await verifyTurnstile('dev')).toBe(true)
+    expect(f).not.toHaveBeenCalled()
+  })
+  it('fails closed in production when no secret is configured', async () => {
+    delete process.env.TURNSTILE_SECRET_KEY
+    const prev = process.env.NODE_ENV
+    vi.stubEnv('NODE_ENV', 'production')
+    expect(await verifyTurnstile('dev')).toBe(false)
+    vi.stubEnv('NODE_ENV', prev ?? 'test')
+  })
 })

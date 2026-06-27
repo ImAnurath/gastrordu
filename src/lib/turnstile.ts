@@ -3,7 +3,11 @@ const VERIFY_URL = 'https://challenges.cloudflare.com/turnstile/v0/siteverify'
 export async function verifyTurnstile(token: string, remoteIp?: string): Promise<boolean> {
   if (!token) return false
   const secret = process.env.TURNSTILE_SECRET_KEY
-  if (!secret) return false
+  if (!secret) {
+    // No secret configured: accept in development (mirrors the client's dev
+    // fallback so local testing isn't blocked) but fail closed in production.
+    return process.env.NODE_ENV !== 'production'
+  }
   const body = new URLSearchParams({ secret, response: token })
   if (remoteIp) body.set('remoteip', remoteIp)
   try {
