@@ -16,3 +16,10 @@ build/
 # OS / editor
 .DS_Store
 *.log
+
+# TypeScript incremental build info
+tsconfig.tsbuildinfo
+*.tsbuildinfo
+
+# Playwright MCP artifacts
+.playwright-mcp/
