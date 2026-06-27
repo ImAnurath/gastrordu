@@ -8,6 +8,7 @@ const QUICK_LINKS = [
   { label: 'Lezzetler', href: '/lezzetler' },
   { label: 'Haberler', href: '/haberler' },
   { label: 'Stant Başvurusu', href: '/basvuru' },
+  { label: 'Başvuru Durumu', href: '/durum' },
 ] as const
 
 export function Footer() {
