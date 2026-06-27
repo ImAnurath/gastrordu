@@ -19,18 +19,27 @@ describe('verifyTurnstile', () => {
     expect(await verifyTurnstile('')).toBe(false)
     expect(f).not.toHaveBeenCalled()
   })
-  it('accepts a token in development when no secret is configured (dev fallback)', async () => {
+  it('accepts when no secret AND the explicit dev bypass is enabled', async () => {
     delete process.env.TURNSTILE_SECRET_KEY
+    vi.stubEnv('TURNSTILE_DEV_BYPASS', '1')
     const f = vi.fn()
     vi.stubGlobal('fetch', f)
     expect(await verifyTurnstile('dev')).toBe(true)
     expect(f).not.toHaveBeenCalled()
   })
-  it('fails closed in production when no secret is configured', async () => {
+  it('fails closed when no secret and no dev bypass (even outside production)', async () => {
     delete process.env.TURNSTILE_SECRET_KEY
-    const prev = process.env.NODE_ENV
+    vi.stubEnv('TURNSTILE_DEV_BYPASS', '')
+    vi.stubEnv('NODE_ENV', 'development')
+    expect(await verifyTurnstile('dev')).toBe(false)
+  })
+  it('fails closed in production even if dev bypass is set', async () => {
+    // The bypass is opt-in via the env var, never via NODE_ENV; but a sane
+    // production deploy would never set TURNSTILE_DEV_BYPASS, so the real guard
+    // is the secret being present. Without a secret and without the flag: closed.
+    delete process.env.TURNSTILE_SECRET_KEY
+    vi.stubEnv('TURNSTILE_DEV_BYPASS', '')
     vi.stubEnv('NODE_ENV', 'production')
     expect(await verifyTurnstile('dev')).toBe(false)
-    vi.stubEnv('NODE_ENV', prev ?? 'test')
   })
 })
