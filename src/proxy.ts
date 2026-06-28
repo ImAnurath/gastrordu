@@ -2,10 +2,13 @@ import { NextResponse, type NextRequest } from 'next/server'
 import { getIronSession } from 'iron-session'
 import { sessionOptions, type SessionData } from '@/lib/session'
 
+// Next 16 renamed the `middleware` file convention to `proxy`. Same behavior:
+// runs before routes, here gating the admin panel + admin API.
+
 // Paths reachable without a session (so admins can authenticate).
 const PUBLIC_PATHS = new Set(['/admin/login', '/api/admin/login'])
 
-export async function middleware(req: NextRequest) {
+export async function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl
   if (PUBLIC_PATHS.has(pathname)) return NextResponse.next()
 

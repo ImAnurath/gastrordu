@@ -1,5 +1,6 @@
+// @vitest-environment node
 import { describe, it, expect, beforeEach } from 'vitest'
-import { checkPassword } from '../session'
+import { checkPassword } from '../adminAuth'
 
 beforeEach(() => { process.env.ADMIN_PASSWORD = 'secret123' })
 

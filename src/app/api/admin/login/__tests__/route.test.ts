@@ -4,6 +4,8 @@ const save = vi.fn()
 const session = { isAdmin: false, save }
 vi.mock('@/lib/session', () => ({
   getSession: async () => session,
+}))
+vi.mock('@/lib/adminAuth', () => ({
   checkPassword: (p: string) => p === 'secret123',
 }))
 import { POST } from '../route'

@@ -1,6 +1,5 @@
 import { getIronSession, type IronSession, type SessionOptions } from 'iron-session'
 import { cookies } from 'next/headers'
-import { createHash, timingSafeEqual } from 'node:crypto'
 
 export type SessionData = { isAdmin?: boolean }
 
@@ -26,13 +25,4 @@ export const sessionOptions: SessionOptions = {
 
 export async function getSession(): Promise<IronSession<SessionData>> {
   return getIronSession<SessionData>(await cookies(), sessionOptions)
-}
-
-export function checkPassword(input: string): boolean {
-  const expected = process.env.ADMIN_PASSWORD
-  if (!expected || !input) return false
-  // Hash both to fixed-width digests so length cannot leak via timing.
-  const a = createHash('sha256').update(input).digest()
-  const b = createHash('sha256').update(expected).digest()
-  return timingSafeEqual(a, b)
 }
