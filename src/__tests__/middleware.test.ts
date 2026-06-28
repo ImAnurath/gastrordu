@@ -16,4 +16,13 @@ describe('admin middleware', () => {
     const res = await middleware(reqFor('/admin/login'))
     expect(res.headers.get('location')).toBeNull()
   })
+  it('returns 401 (not redirect) for unauthenticated /api/admin/export', async () => {
+    const res = await middleware(reqFor('/api/admin/export'))
+    expect(res.status).toBe(401)
+    expect(res.headers.get('location')).toBeNull()
+  })
+  it('allows /api/admin/login through', async () => {
+    const res = await middleware(reqFor('/api/admin/login'))
+    expect(res.headers.get('location')).toBeNull()
+  })
 })
