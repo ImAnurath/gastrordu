@@ -12,7 +12,7 @@ export async function GET(req: Request) {
   const q = url.searchParams.get('q') || undefined
   const apps = await listApplications({ status, q })
   const buf = buildApplicationsWorkbook(apps)
-  return new Response(buf, {
+  return new Response(new Uint8Array(buf), {
     status: 200,
     headers: {
       'Content-Type': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
