@@ -1,11 +1,20 @@
 import { getIronSession, type IronSession, type SessionOptions } from 'iron-session'
 import { cookies } from 'next/headers'
-import { timingSafeEqual } from 'node:crypto'
+import { createHash, timingSafeEqual } from 'node:crypto'
 
 export type SessionData = { isAdmin?: boolean }
 
+const sessionPassword = process.env.SESSION_PASSWORD
+if (!sessionPassword || sessionPassword.length < 32) {
+  // Fail closed in production; allow an insecure fallback only for local dev/test.
+  if (process.env.NODE_ENV === 'production') {
+    throw new Error('SESSION_PASSWORD must be set to a 32+ char secret in production')
+  }
+  console.warn('SESSION_PASSWORD missing or <32 chars — using insecure dev fallback')
+}
+
 export const sessionOptions: SessionOptions = {
-  password: process.env.SESSION_PASSWORD ?? 'dev-only-insecure-password-change-me-32+',
+  password: sessionPassword ?? 'dev-only-insecure-password-change-me-32+',
   cookieName: 'gastrordu_admin',
   cookieOptions: {
     httpOnly: true,
@@ -22,8 +31,8 @@ export async function getSession(): Promise<IronSession<SessionData>> {
 export function checkPassword(input: string): boolean {
   const expected = process.env.ADMIN_PASSWORD
   if (!expected || !input) return false
-  const a = Buffer.from(input)
-  const b = Buffer.from(expected)
-  if (a.length !== b.length) return false
+  // Hash both to fixed-width digests so length cannot leak via timing.
+  const a = createHash('sha256').update(input).digest()
+  const b = createHash('sha256').update(expected).digest()
   return timingSafeEqual(a, b)
 }
