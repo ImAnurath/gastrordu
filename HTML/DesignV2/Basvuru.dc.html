@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Dancing+Script:wght@600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:#F4F0E5;color:#16263F;font-family:'Source Serif 4',Georgia,serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+  ::selection{background:#5C7A2E;color:#F4F0E5;}
+  a{color:inherit;}
+  input,textarea,select,button{font-family:inherit;}
+  @keyframes stepIn{from{opacity:0;transform:translateX(26px);}to{opacity:1;transform:none;}}
+  @media (prefers-reduced-motion:reduce){*{animation:none !important;}}
+</style>
+</helmet>
+<div style="background:#F4F0E5;">
+  <dc-import name="Header" active="basvuru" hint-size="100%,120px"></dc-import>
+
+  <section style="background:#16263F;color:#EDE7D6;">
+    <div style="max-width:1440px;margin:0 auto;padding:clamp(44px,5vw,68px) 28px;">
+      <div style="font-family:'Archivo',sans-serif;font-weight:600;font-size:13px;letter-spacing:.14em;color:#9DB36A;margin-bottom:14px;"><a href="Ordu Gastronomi Festivali.dc.html" style="text-decoration:none;color:#9DB36A;">ANASAYFA</a> · BAŞVURU</div>
+      <h1 style="margin:0 0 14px;font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(34px,5vw,60px);line-height:1.02;color:#F4F0E5;">Stant Tahsisi Başvurusu</h1>
+      <p style="font-family:'Source Serif 4',serif;font-size:18px;line-height:1.6;color:#B8C2D4;margin:0;max-width:640px;">30–31 Temmuz 2026'da Tayfun Gürsoy Parkı'nda düzenlenecek festival kapsamında stant açmak için formu adım adım doldurun. Son başvuru: 17 Temmuz 2026.</p>
+    </div>
+  </section>
+
+  <section style="max-width:760px;margin:0 auto;padding:clamp(48px,6vw,80px) 28px;">
+    <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
+    <div style="background:#5C7A2E;color:#F7F4EA;border-radius:20px;padding:48px 36px;text-align:center;animation:stepIn .45s ease both;">
+      <div style="width:64px;height:64px;border-radius:50%;background:rgba(247,244,234,.18);display:flex;align-items:center;justify-content:center;margin:0 auto 22px;font-family:'Archivo',sans-serif;font-weight:900;font-size:32px;">✓</div>
+      <h3 style="margin:0 0 12px;font-family:'Archivo',sans-serif;font-weight:800;font-size:26px;">Başvurunuz alındı</h3>
+      <p style="font-family:'Source Serif 4',serif;font-size:17px;line-height:1.6;color:#E2E8CF;margin:0 auto;max-width:480px;">Başvurunuz değerlendirilmek üzere Ordu İl Kültür ve Turizm Müdürlüğü'ne iletilmiştir. Uygun görülmesi halinde belirttiğiniz iletişim bilgilerinden sizinle iletişime geçilecektir.</p>
+      <a href="Ordu Gastronomi Festivali.dc.html" style="display:inline-block;margin-top:26px;text-decoration:none;background:#F7F4EA;color:#435C20;font-family:'Archivo',sans-serif;font-weight:800;font-size:15px;padding:13px 30px;border-radius:999px;">Anasayfaya Dön</a>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
+    <div style="background:#FCFBF6;border:1px solid #E4DDC9;border-radius:20px;padding:clamp(24px,4vw,40px);box-shadow:0 24px 50px -34px rgba(22,38,63,.4);">
+      <div style="display:flex;gap:10px;margin-bottom:32px;">
+        <sc-for list="{{ steps }}" as="st" hint-placeholder-count="4">
+          <div style="flex:1;display:flex;flex-direction:column;gap:9px;min-width:0;">
+            <div style="height:5px;border-radius:3px;background:{{ st.bar }};transition:background .3s ease;"></div>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <span style="width:24px;height:24px;border-radius:50%;background:{{ st.dotBg }};color:{{ st.dotColor }};font-family:'Archivo',sans-serif;font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;flex:none;transition:background .3s ease;">{{ st.num }}</span>
+              <span style="font-family:'Archivo',sans-serif;font-weight:600;font-size:12.5px;color:{{ st.labelColor }};overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{ st.label }}</span>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+
+      <form onSubmit="{{ submit }}">
+        <sc-if value="{{ isStep1 }}" hint-placeholder-val="{{ true }}">
+        <div style="animation:stepIn .4s ease both;">
+          <h3 style="margin:0 0 20px;font-family:'Archivo',sans-serif;font-weight:800;font-size:20px;color:#16263F;">Başvuru Sahibi Bilgileri</h3>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;">
+            <label style="display:block;">
+              <span style="display:block;font-family:'Archivo',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;color:#5C7A2E;margin-bottom:7px;">Adı Soyadı / Firma Unvanı</span>
+              <input type="text" placeholder="Örn. Ordu Fındık Kooperatifi" style="width:100%;padding:13px 15px;border:1.5px solid #D8CFB8;border-radius:8px;background:#FFFDF7;font-size:16px;color:#16263F;" style-focus="border-color:#5C7A2E;outline:none;">
+            </label>
+            <label style="display:block;">
+              <span style="display:block;font-family:'Archivo',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;color:#5C7A2E;margin-bottom:7px;">T.C. Kimlik No / Vergi No</span>
+              <input type="text" placeholder="11 / 10 haneli numara" style="width:100%;padding:13px 15px;border:1.5px solid #D8CFB8;border-radius:8px;background:#FFFDF7;font-size:16px;color:#16263F;" style-focus="border-color:#5C7A2E;outline:none;">
+            </label>
+            <label style="display:block;grid-column:1/-1;">
+              <span style="display:block;font-family:'Archivo',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;color:#5C7A2E;margin-bottom:7px;">Faaliyet Konusu</span>
+              <input type="text" placeholder="Örn. Yöresel ürün üretimi ve satışı" style="width:100%;padding:13px 15px;border:1.5px solid #D8CFB8;border-radius:8px;background:#FFFDF7;font-size:16px;color:#16263F;" style-focus="border-color:#5C7A2E;outline:none;">
+            </label>
+          </div>
+          <div style="margin-top:22px;">
+            <span style="display:block;font-family:'Archivo',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;color:#5C7A2E;margin-bottom:12px;">İşletme Türü</span>
+            <div style="display:flex;flex-wrap:wrap;gap:10px;">
+              <sc-for list="{{ isletmeTypes }}" as="t" hint-placeholder-count="7">
+                <label style="display:inline-flex;align-items:center;gap:9px;background:#FFFDF7;border:1.5px solid #D8CFB8;border-radius:999px;padding:10px 17px;cursor:pointer;font-family:'Source Serif 4',serif;font-size:15px;color:#3C4A5C;">
+                  <input type="radio" name="isletmeTuru" value="{{ t }}" style="accent-color:#5C7A2E;width:16px;height:16px;">
+                  {{ t }}
+                </label>
+              </sc-for>
+            </div>
+            <input type="text" placeholder="Diğer ise belirtiniz" style="width:100%;margin-top:14px;padding:13px 15px;border:1.5px solid #D8CFB8;border-radius:8px;background:#FFFDF7;font-size:16px;color:#16263F;" style-focus="border-color:#5C7A2E;outline:none;">
+          </div>
+        </div>
+        </sc-if>
+
+        <sc-if value="{{ isStep2 }}" hint-placeholder-val="{{ false }}">
+        <div style="animation:stepIn .4s ease both;">
+          <h3 style="margin:0 0 20px;font-family:'Archivo',sans-serif;font-weight:800;font-size:20px;color:#16263F;">İletişim Bilgileri</h3>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;">
+            <label style="display:block;">
+              <span style="display:block;font-family:'Archivo',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;color:#5C7A2E;margin-bottom:7px;">Yetkili Kişi</span>
+              <input type="text" placeholder="Ad Soyad" style="width:100%;padding:13px 15px;border:1.5px solid #D8CFB8;border-radius:8px;background:#FFFDF7;font-size:16px;color:#16263F;" style-focus="border-color:#5C7A2E;outline:none;">
+            </label>
+            <label style="display:block;">
+              <span style="display:block;font-family:'Archivo',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;color:#5C7A2E;margin-bottom:7px;">Telefon</span>
+              <input type="tel" placeholder="0 (5__) ___ __ __" style="width:100%;padding:13px 15px;border:1.5px solid #D8CFB8;border-radius:8px;background:#FFFDF7;font-size:16px;color:#16263F;" style-focus="border-color:#5C7A2E;outline:none;">
+            </label>
+            <label style="display:block;">
+              <span style="display:block;font-family:'Archivo',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;color:#5C7A2E;margin-bottom:7px;">E-posta</span>
+              <input type="email" placeholder="ornek@eposta.com" style="width:100%;padding:13px 15px;border:1.5px solid #D8CFB8;border-radius:8px;background:#FFFDF7;font-size:16px;color:#16263F;" style-focus="border-color:#5C7A2E;outline:none;">
+            </label>
+            <label style="display:block;">
+              <span style="display:block;font-family:'Archivo',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;color:#5C7A2E;margin-bottom:7px;">Adres</span>
+              <input type="text" placeholder="Açık adres" style="width:100%;padding:13px 15px;border:1.5px solid #D8CFB8;border-radius:8px;background:#FFFDF7;font-size:16px;color:#16263F;" style-focus="border-color:#5C7A2E;outline:none;">
+            </label>
+          </div>
+        </div>
+        </sc-if>
+
+        <sc-if value="{{ isStep3 }}" hint-placeholder-val="{{ false }}">
+        <div style="animation:stepIn .4s ease both;">
+          <h3 style="margin:0 0 20px;font-family:'Archivo',sans-serif;font-weight:800;font-size:20px;color:#16263F;">Ürünler & Stant Talepleri</h3>
+          <label style="display:block;margin-bottom:22px;">
+            <span style="display:block;font-family:'Archivo',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;color:#5C7A2E;margin-bottom:7px;">Sergilenecek / Satışı Yapılacak Ürünler</span>
+            <textarea rows="4" placeholder="Stantta sergilenecek veya satışı yapılacak ürünleri yazınız." style="width:100%;padding:13px 15px;border:1.5px solid #D8CFB8;border-radius:8px;background:#FFFDF7;font-size:16px;color:#16263F;resize:vertical;font-family:'Source Serif 4',serif;line-height:1.5;" style-focus="border-color:#5C7A2E;outline:none;"></textarea>
+          </label>
+          <span style="display:block;font-family:'Archivo',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;color:#5C7A2E;margin-bottom:12px;">Elektrik İhtiyacı</span>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px;">
+            <label style="display:inline-flex;align-items:center;gap:9px;background:#FFFDF7;border:1.5px solid #D8CFB8;border-radius:999px;padding:10px 20px;cursor:pointer;font-family:'Source Serif 4',serif;font-size:15px;color:#3C4A5C;">
+              <input type="radio" name="elektrik" value="evet" style="accent-color:#5C7A2E;width:16px;height:16px;"> Evet
+            </label>
+            <label style="display:inline-flex;align-items:center;gap:9px;background:#FFFDF7;border:1.5px solid #D8CFB8;border-radius:999px;padding:10px 20px;cursor:pointer;font-family:'Source Serif 4',serif;font-size:15px;color:#3C4A5C;">
+              <input type="radio" name="elektrik" value="hayir" style="accent-color:#5C7A2E;width:16px;height:16px;"> Hayır
+            </label>
+          </div>
+          <label style="display:block;">
+            <span style="display:block;font-family:'Archivo',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;color:#5C7A2E;margin-bottom:7px;">Diğer Talepler</span>
+            <textarea rows="3" placeholder="Masa, çadır, su bağlantısı vb. taleplerinizi belirtiniz." style="width:100%;padding:13px 15px;border:1.5px solid #D8CFB8;border-radius:8px;background:#FFFDF7;font-size:16px;color:#16263F;resize:vertical;font-family:'Source Serif 4',serif;line-height:1.5;" style-focus="border-color:#5C7A2E;outline:none;"></textarea>
+          </label>
+        </div>
+        </sc-if>
+
+        <sc-if value="{{ isStep4 }}" hint-placeholder-val="{{ false }}">
+        <div style="animation:stepIn .4s ease both;">
+          <h3 style="margin:0 0 16px;font-family:'Archivo',sans-serif;font-weight:800;font-size:20px;color:#16263F;">Beyan ve Taahhüt</h3>
+          <div style="background:#16263F;color:#D9E0EC;border-radius:14px;padding:24px 24px;">
+            <p style="font-family:'Source Serif 4',serif;font-size:15px;line-height:1.7;color:#B8C2D4;margin:0 0 18px;">Festival süresince ilgili mevzuata, hijyen kurallarına ve festival organizasyonunca belirlenen usul ve esaslara uyacağımı; kamu düzenini bozacak herhangi bir faaliyette bulunmayacağımı; tarafıma tahsis edilen alanı amacı dışında kullanmayacağımı ve stantta sergilenecek/satışı yapılacak ürünlerle ilgili yeterli bilgiye sahip kişilerin bulundurulacağını kabul ve taahhüt ederim.</p>
+            <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;">
+              <input type="checkbox" checked="{{ kabul }}" onChange="{{ toggleKabul }}" style="accent-color:#9DB36A;width:20px;height:20px;margin-top:1px;flex:none;">
+              <span style="font-family:'Source Serif 4',serif;font-size:15.5px;line-height:1.5;color:#F4F0E5;">Yukarıdaki beyan ve taahhüt metnini okudum, kabul ediyorum.</span>
+            </label>
+          </div>
+        </div>
+        </sc-if>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:30px;">
+          <div>
+            <sc-if value="{{ showBack }}" hint-placeholder-val="{{ false }}">
+              <button type="button" onClick="{{ back }}" style="background:transparent;color:#16263F;font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;padding:13px 26px;border:1.5px solid #C6BC9E;border-radius:999px;cursor:pointer;">← Geri</button>
+            </sc-if>
+          </div>
+          <button type="submit" disabled="{{ rightDisabled }}" style="background:{{ rightBg }};color:#F7F4EA;font-family:'Archivo',sans-serif;font-weight:800;font-size:15px;padding:14px 34px;border:none;border-radius:999px;cursor:{{ rightCursor }};opacity:{{ rightOpacity }};box-shadow:0 10px 24px -14px rgba(92,122,46,.8);">{{ nextLabel }}</button>
+        </div>
+        <sc-if value="{{ isStep4 }}" hint-placeholder-val="{{ false }}">
+        <p style="text-align:right;font-family:'Source Serif 4',serif;font-size:13px;color:#7A7256;margin:12px 0 0;">Göndermek için onay kutusunu işaretleyin.</p>
+        </sc-if>
+      </form>
+    </div>
+    </sc-if>
+  </section>
+
+  <dc-import name="Footer" hint-size="100%,360px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { step: 1, kabul: false, submitted: false };
+
+  renderVals() {
+    const isletmeTypes = ['Gerçek Kişi', 'Şahıs İşletmesi', 'Şirket', 'Kooperatif', 'Dernek', 'Kamu Kurumu', 'Diğer'];
+    const step = this.state.step;
+    const mk = (i, label) => {
+      const done = i < step, active = i === step;
+      const on = done || active;
+      return {
+        num: String(i), label,
+        bar: on ? '#5C7A2E' : '#E0D8C2',
+        dotBg: on ? '#5C7A2E' : '#E0D8C2',
+        dotColor: on ? '#F7F4EA' : '#9A9276',
+        labelColor: active ? '#16263F' : (done ? '#5C7A2E' : '#9A9276')
+      };
+    };
+    const steps = [mk(1, 'Başvuru Sahibi'), mk(2, 'İletişim'), mk(3, 'Ürün & Stant'), mk(4, 'Onay')];
+    const rightDisabled = (step === 4) && !this.state.kabul;
+
+    return {
+      isletmeTypes, steps,
+      isStep1: step === 1, isStep2: step === 2, isStep3: step === 3, isStep4: step === 4,
+      showBack: step > 1,
+      nextLabel: step < 4 ? 'Devam Et →' : 'Başvuruyu Gönder',
+      rightDisabled,
+      rightBg: rightDisabled ? '#A9B58C' : '#5C7A2E',
+      rightCursor: rightDisabled ? 'not-allowed' : 'pointer',
+      rightOpacity: rightDisabled ? '0.7' : '1',
+      back: () => this.setState(s => ({ step: Math.max(1, s.step - 1) })),
+      kabul: this.state.kabul,
+      submitted: this.state.submitted,
+      notSubmitted: !this.state.submitted,
+      toggleKabul: () => this.setState(s => ({ kabul: !s.kabul })),
+      submit: (e) => {
+        e.preventDefault();
+        if (this.state.step < 4) { this.setState(s => ({ step: Math.min(4, s.step + 1) })); return; }
+        if (this.state.kabul) this.setState({ submitted: true });
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

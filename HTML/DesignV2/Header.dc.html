@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div ref="{{ barRef }}" style="position:fixed;top:0;left:0;right:0;z-index:80;">
+  <sc-if value="{{ showTopBar }}" hint-placeholder-val="{{ true }}">
+  <div style="background:#435C20;color:#E8EDD9;font-family:'Archivo',sans-serif;font-size:12.5px;letter-spacing:.04em;">
+    <div style="max-width:1440px;margin:0 auto;padding:9px 28px;display:flex;flex-wrap:wrap;gap:10px 26px;align-items:center;justify-content:space-between;">
+      <div style="display:flex;flex-wrap:wrap;gap:8px 22px;align-items:center;">
+        <span style="font-weight:600;">30–31 TEMMUZ 2026</span>
+        <span style="opacity:.55;">•</span>
+        <span>TAYFUN GÜRSOY PARKI · ORDU</span>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;">
+        <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="cca5a2aaa38ca3bea8b9abadbfb8bea3aaa9bfb8e2a3beab">[email&#160;protected]</a></span>
+        <span style="opacity:.4;">|</span>
+        <a href="#" style="text-decoration:none;color:#E8EDD9;">Instagram</a>
+        <a href="#" style="text-decoration:none;color:#E8EDD9;">X</a>
+        <a href="#" style="text-decoration:none;color:#E8EDD9;">YouTube</a>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <header style="position:relative;background:rgba(244,240,229,.94);backdrop-filter:blur(10px);border-bottom:1px solid #DED6C0;box-shadow:{{ headerShadow }};transition:box-shadow .3s ease;">
+    <div style="max-width:1440px;margin:0 auto;padding:13px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;">
+      <a href="{{ homeHref }}" style="display:flex;align-items:center;gap:13px;text-decoration:none;">
+        <div style="width:44px;height:44px;border-radius:50%;border:2px dashed #B5AA8A;display:flex;align-items:center;justify-content:center;font-family:ui-monospace,monospace;font-size:9px;color:#8A8062;letter-spacing:.05em;flex:none;">LOGO</div>
+        <div style="line-height:1;">
+          <div style="font-family:'Archivo',sans-serif;font-weight:900;font-size:17px;letter-spacing:.01em;color:#16263F;">ORDU GASTRONOMİ</div>
+          <div style="font-family:'Archivo',sans-serif;font-weight:600;font-size:10.5px;letter-spacing:.3em;color:#5C7A2E;margin-top:3px;">F E S T İ V A L İ</div>
+        </div>
+      </a>
+      <sc-if value="{{ showDesktopNav }}" hint-placeholder-val="{{ true }}">
+      <nav style="display:flex;align-items:center;gap:26px;font-family:'Archivo',sans-serif;font-weight:600;font-size:14.5px;">
+        <sc-for list="{{ navItems }}" as="it" hint-placeholder-count="6">
+          <a href="{{ it.href }}" style="text-decoration:none;color:{{ it.color }};font-weight:{{ it.weight }};border-bottom:{{ it.underline }};padding-bottom:3px;">{{ it.label }}</a>
+        </sc-for>
+        <a href="{{ basvuruHref }}" style="text-decoration:none;background:{{ ctaBg }};color:#F7F4EA;padding:11px 22px;border-radius:999px;font-weight:700;letter-spacing:.02em;">Başvuru Yap</a>
+      </nav>
+      </sc-if>
+      <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+      <button onClick="{{ toggleMenu }}" aria-label="Menü" style="display:flex;flex-direction:column;gap:5px;width:46px;height:46px;align-items:center;justify-content:center;background:#5C7A2E;border:none;border-radius:12px;cursor:pointer;">
+        <span style="width:20px;height:2px;background:#F7F4EA;display:block;"></span>
+        <span style="width:20px;height:2px;background:#F7F4EA;display:block;"></span>
+        <span style="width:20px;height:2px;background:#F7F4EA;display:block;"></span>
+      </button>
+      </sc-if>
+    </div>
+    <div style="position:absolute;left:0;bottom:-1px;height:3px;width:{{ scrollPct }};background:linear-gradient(90deg,#5C7A2E,#9DB36A);transition:width .1s linear;"></div>
+  </header>
+
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+  <nav style="background:#F4F0E5;border-bottom:1px solid #DED6C0;padding:10px 28px 18px;display:flex;flex-direction:column;gap:4px;font-family:'Archivo',sans-serif;font-weight:600;font-size:16px;box-shadow:0 18px 30px -20px rgba(22,38,63,.5);">
+    <sc-for list="{{ navItems }}" as="it" hint-placeholder-count="6">
+      <a href="{{ it.href }}" style="text-decoration:none;color:{{ it.color }};font-weight:{{ it.weight }};padding:12px 0;border-bottom:1px solid #E4DDC9;">{{ it.label }}</a>
+    </sc-for>
+    <a href="{{ basvuruHref }}" style="text-decoration:none;background:#5C7A2E;color:#F7F4EA;padding:13px 0;border-radius:12px;text-align:center;margin-top:8px;">Başvuru Yap</a>
+  </nav>
+  </sc-if>
+</div>
+<div style="height:{{ spacerH }}px;"></div>
+</x-dc>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1240,&quot;height&quot;:120},&quot;active&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;home&quot;,&quot;festival&quot;,&quot;program&quot;,&quot;lezzetler&quot;,&quot;haberler&quot;,&quot;iletisim&quot;,&quot;basvuru&quot;],&quot;default&quot;:&quot;home&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;showTopBar&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  state = {
+    vw: (typeof window !== 'undefined' ? window.innerWidth : 1200),
+    menuOpen: false,
+    spacerH: 114,
+    scrolled: false,
+    scrollPct: 0
+  };
+
+  constructor(props) {
+    super(props);
+    this.barRef = React.createRef();
+  }
+
+  measure() {
+    if (this.barRef.current) {
+      const h = this.barRef.current.querySelector('header')
+        ? this.barRef.current.getBoundingClientRect().height
+        : 114;
+      // exclude open mobile menu from spacer: measure header+topbar only
+      const header = this.barRef.current.querySelector('header');
+      const topbar = this.barRef.current.firstElementChild;
+      let hh = 0;
+      if (topbar) hh += topbar.getBoundingClientRect().height;
+      if (header && header !== topbar) hh += header.getBoundingClientRect().height;
+      const val = hh || h;
+      if (Math.abs(val - this.state.spacerH) > 1) this.setState({ spacerH: val });
+    }
+  }
+
+  componentDidMount() {
+    this._onResize = () => {
+      if (this._raf) cancelAnimationFrame(this._raf);
+      this._raf = requestAnimationFrame(() => { this.setState({ vw: window.innerWidth, menuOpen: false }); this.measure(); });
+    };
+    window.addEventListener('resize', this._onResize);
+    requestAnimationFrame(() => this.measure());
+    setTimeout(() => this.measure(), 400);
+
+    this._onScroll = () => {
+      if (this._sraf) cancelAnimationFrame(this._sraf);
+      this._sraf = requestAnimationFrame(() => {
+        const y = window.scrollY || window.pageYOffset || 0;
+        const max = (document.documentElement.scrollHeight - window.innerHeight) || 1;
+        const pct = Math.max(0, Math.min(1, y / max));
+        const scrolled = y > 8;
+        if (pct !== this.state.scrollPct || scrolled !== this.state.scrolled) {
+          this.setState({ scrollPct: pct, scrolled });
+        }
+      });
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    this._onScroll();
+  }
+  componentWillUnmount() {
+    if (this._onResize) window.removeEventListener('resize', this._onResize);
+    if (this._onScroll) window.removeEventListener('scroll', this._onScroll);
+  }
+
+  renderVals() {
+    const isMobile = this.state.vw < 880;
+    const active = this.props.active ?? 'home';
+    const homeHref = 'Ordu Gastronomi Festivali.dc.html';
+    const defs = [
+      { key: 'home', label: 'Anasayfa', href: homeHref },
+      { key: 'festival', label: 'Festival', href: 'Festival.dc.html' },
+      { key: 'program', label: 'Program', href: 'Program.dc.html' },
+      { key: 'lezzetler', label: 'Lezzetler', href: 'Lezzetler.dc.html' },
+      { key: 'haberler', label: 'Haberler', href: 'Haberler.dc.html' },
+      { key: 'iletisim', label: 'İletişim', href: 'Iletisim.dc.html' }
+    ];
+    const navItems = defs.map(d => {
+      const on = d.key === active;
+      return {
+        label: d.label,
+        href: d.href,
+        color: on ? '#5C7A2E' : '#2E4159',
+        weight: on ? '700' : '600',
+        underline: on ? '2px solid #5C7A2E' : '2px solid transparent'
+      };
+    });
+
+    return {
+      barRef: this.barRef,
+      showTopBar: this.props.showTopBar ?? true,
+      isMobile,
+      showDesktopNav: !isMobile,
+      menuOpen: this.state.menuOpen && isMobile,
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      spacerH: this.state.spacerH,
+      homeHref,
+      basvuruHref: 'Basvuru.dc.html',
+      ctaBg: active === 'basvuru' ? '#435C20' : '#5C7A2E',
+      headerShadow: this.state.scrolled ? '0 10px 30px -16px rgba(22,38,63,.45)' : '0 0 0 0 rgba(0,0,0,0)',
+      scrollPct: (this.state.scrollPct * 100).toFixed(2) + '%',
+      navItems
+    };
+  }
+}
+</script>
+</body>
+</html>

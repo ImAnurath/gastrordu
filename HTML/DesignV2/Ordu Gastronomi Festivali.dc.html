@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Dancing+Script:wght@600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:#F4F0E5;color:#16263F;font-family:'Source Serif 4',Georgia,serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+  ::selection{background:#5C7A2E;color:#F4F0E5;}
+  a{color:inherit;}
+  input,textarea,select,button{font-family:inherit;}
+  @keyframes heroIn{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:none;}}
+  @keyframes revealUp{from{opacity:0;transform:translateY(34px);}to{opacity:1;transform:none;}}
+  @keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  @keyframes marqueeRev{from{transform:translateX(-50%);}to{transform:translateX(0);}}
+  @keyframes floaty{0%,100%{transform:translateY(0);}50%{transform:translateY(-7px);}}
+  .collageTrack:hover{animation-play-state:paused;}
+  @media (prefers-reduced-motion:reduce){*{animation:none !important;}}
+</style>
+</helmet>
+<div style="background:#F4F0E5;">
+
+  <dc-import name="Header" active="home" hint-size="100%,120px"></dc-import>
+
+  <!-- HERO -->
+  <section style="position:relative;">
+    <div style="max-width:1440px;margin:0 auto;padding:clamp(40px,5.5vw,78px) clamp(20px,4vw,48px) clamp(48px,6vw,86px);display:flex;flex-wrap:wrap;gap:clamp(28px,4vw,64px);align-items:center;justify-content:{{ heroJustify }};">
+      <div style="flex:1 1 540px;max-width:{{ heroMax }};text-align:{{ heroTextAlign }};position:relative;z-index:2;">
+        <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.28em;color:#B07A33;margin-bottom:22px;animation:heroIn .7s ease both;animation-delay:.04s;">YEDAŞ SUNAR · ORDU İL KÜLTÜR VE TURİZM MÜDÜRLÜĞÜ</div>
+        <h1 style="margin:0;font-family:'Archivo',sans-serif;font-weight:900;line-height:.9;letter-spacing:-.02em;color:#16263F;font-size:clamp(44px,7vw,92px);animation:heroIn .7s ease both;animation-delay:.12s;">ORDU<br>GASTRONOMİ</h1>
+        <div style="font-family:'Dancing Script',cursive;font-weight:700;color:#5C7A2E;font-size:clamp(46px,8vw,92px);line-height:1;margin-top:-4px;animation:heroIn .7s ease both;animation-delay:.2s;">Festivali</div>
+        <p style="font-family:'Source Serif 4',serif;font-size:clamp(17px,1.7vw,20px);line-height:1.6;color:#3C4A5C;max-width:520px;margin:26px auto 0;margin-left:{{ heroPLeft }};animation:heroIn .7s ease both;animation-delay:.3s;">Ordu'nun bereketli doğasını köklü kültürel mirasıyla buluşturan eşsiz lezzetleri tanıtmak ve bu mirası gelecek nesillere aktarmak için buluşuyoruz.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:34px;justify-content:{{ heroJustify2 }};animation:heroIn .7s ease both;animation-delay:.4s;">
+          <a href="Basvuru.dc.html" style="text-decoration:none;background:#5C7A2E;color:#F7F4EA;font-family:'Archivo',sans-serif;font-weight:700;font-size:16px;padding:16px 32px;border-radius:999px;box-shadow:0 8px 22px -10px rgba(92,122,46,.7);transition:transform .2s ease;" style-hover="transform:translateY(-2px);">Stant Başvurusu Yap</a>
+          <a href="Program.dc.html" style="text-decoration:none;background:transparent;color:#16263F;font-family:'Archivo',sans-serif;font-weight:700;font-size:16px;padding:15px 32px;border-radius:999px;border:1.5px solid #16263F;transition:transform .2s ease;" style-hover="transform:translateY(-2px);">Programı İncele</a>
+        </div>
+      </div>
+      <sc-if value="{{ heroSplit }}" hint-placeholder-val="{{ true }}">
+      <div style="flex:1 1 420px;max-width:540px;position:relative;z-index:1;animation:heroIn .8s ease both;animation-delay:.18s;">
+        <div style="position:relative;width:100%;aspect-ratio:4/5;border-radius:18px;overflow:hidden;background:repeating-linear-gradient(135deg,#E4DDC9,#E4DDC9 12px,#ECE6D6 12px,#ECE6D6 24px);box-shadow:0 30px 60px -30px rgba(22,38,63,.4);">
+          <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:ui-monospace,monospace;font-size:13px;color:#8A8062;letter-spacing:.05em;text-align:center;padding:24px;">festival görseli<br>etkinlik alanı · 4:5</span>
+        </div>
+        <div style="position:absolute;bottom:-26px;right:-22px;width:158px;height:158px;border-radius:50%;background:#5C7A2E;color:#F7F4EA;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 14px 30px -10px rgba(67,92,32,.7);border:5px solid #F4F0E5;">
+          <div style="font-family:'Archivo',sans-serif;font-weight:900;font-size:34px;line-height:1;">30–31</div>
+          <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;letter-spacing:.14em;margin-top:5px;">TEMMUZ</div>
+          <div style="font-family:'Archivo',sans-serif;font-weight:600;font-size:13px;letter-spacing:.1em;opacity:.85;">2026</div>
+        </div>
+      </div>
+      </sc-if>
+    </div>
+  </section>
+
+  <!-- COUNTDOWN -->
+  <section style="background:#16263F;color:#EDE7D6;">
+    <div style="max-width:1440px;margin:0 auto;padding:clamp(32px,3.6vw,50px) clamp(20px,4vw,48px);display:flex;flex-wrap:wrap;gap:22px 40px;align-items:center;justify-content:space-between;">
+      <div style="flex:1 1 280px;">
+        <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.2em;color:#9DB36A;margin-bottom:10px;">FESTİVALE KALAN SÜRE</div>
+        <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(20px,2.2vw,28px);color:#F4F0E5;line-height:1.15;">30–31 Temmuz 2026 · Tayfun Gürsoy Parkı</div>
+      </div>
+      <div style="display:flex;gap:clamp(8px,1.2vw,16px);">
+        <sc-for list="{{ countdown }}" as="c" hint-placeholder-count="4">
+          <div style="background:rgba(244,240,229,.06);border:1px solid rgba(157,179,106,.28);border-radius:14px;padding:clamp(12px,1.4vw,18px) clamp(12px,1.5vw,22px);text-align:center;min-width:clamp(62px,6.5vw,88px);">
+            <div style="font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(28px,3.4vw,44px);color:#9DB36A;line-height:1;font-variant-numeric:tabular-nums;">{{ c.v }}</div>
+            <div style="font-family:'Archivo',sans-serif;font-weight:600;font-size:11.5px;letter-spacing:.12em;color:#A6AEC0;margin-top:8px;text-transform:uppercase;">{{ c.l }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLLAGE STRIP -->
+  <section style="position:relative;background:radial-gradient(120% 140% at 50% -20%,#4A6322 0%,#3A4F1B 46%,#2E3F16 100%);border-top:1px solid #2E3F16;border-bottom:1px solid #2E3F16;overflow:hidden;padding:34px 0 38px;">
+    <div style="display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:26px;padding:0 20px;text-align:center;">
+      <span style="height:1px;flex:0 1 70px;background:linear-gradient(90deg,transparent,rgba(157,179,106,.6));"></span>
+      <span style="font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(13px,1.4vw,15px);letter-spacing:.22em;color:#CBD9A6;text-transform:uppercase;">Festivalde Neler Var?</span>
+      <span style="height:1px;flex:0 1 70px;background:linear-gradient(90deg,rgba(157,179,106,.6),transparent);"></span>
+    </div>
+
+    <!-- ROW 1 -->
+    <div style="position:relative;-webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);">
+      <div class="collageTrack" style="display:flex;width:max-content;gap:18px;padding:0 9px;animation:marquee 46s linear infinite;">
+        <sc-for list="{{ collageA }}" as="c" hint-placeholder-count="18">
+          <div style="flex:none;width:clamp(196px,21vw,250px);transform:translateY({{ c.off }});">
+            <div style="position:relative;width:100%;aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:repeating-linear-gradient(135deg,#54702A,#54702A 12px,#5E7B30 12px,#5E7B30 24px);box-shadow:0 16px 30px -18px rgba(0,0,0,.6),inset 0 0 0 1px rgba(244,240,229,.1);">
+              <span style="position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:flex-start;padding:13px 14px;background:linear-gradient(180deg,rgba(22,38,63,0) 38%,rgba(22,38,63,.6) 100%);">
+                <span style="font-family:ui-monospace,monospace;font-size:10.5px;color:rgba(244,240,229,.5);">fotoğraf · {{ c.t }}</span>
+              </span>
+              <span style="position:absolute;top:11px;left:11px;display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;background:rgba(22,38,63,.78);color:#9DB36A;font-family:'Archivo',sans-serif;font-weight:900;font-size:13px;backdrop-filter:blur(2px);">{{ c.n }}</span>
+            </div>
+            <div style="margin-top:11px;font-family:'Archivo',sans-serif;font-weight:700;font-size:14.5px;line-height:1.25;color:#F4F0E5;letter-spacing:.01em;">{{ c.t }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <!-- ROW 2 -->
+    <div style="position:relative;margin-top:20px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);">
+      <div class="collageTrack" style="display:flex;width:max-content;gap:14px;padding:0 9px;animation:marqueeRev 52s linear infinite;">
+        <sc-for list="{{ collageB }}" as="c" hint-placeholder-count="18">
+          <div style="flex:none;display:inline-flex;align-items:center;gap:11px;padding:11px 20px 11px 13px;border-radius:999px;background:rgba(244,240,229,.07);border:1px solid rgba(157,179,106,.32);white-space:nowrap;">
+            <span style="display:flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:#9DB36A;color:#23310F;font-family:'Archivo',sans-serif;font-weight:900;font-size:12px;flex:none;">{{ c.n }}</span>
+            <span style="font-family:'Archivo',sans-serif;font-weight:600;font-size:15px;color:#EDF1DF;letter-spacing:.02em;">{{ c.t }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="display:flex;justify-content:center;margin-top:30px;">
+      <a href="Festival.dc.html" style="text-decoration:none;display:inline-flex;align-items:center;gap:9px;font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;color:#23310F;background:#9DB36A;padding:13px 28px;border-radius:999px;transition:transform .2s ease;box-shadow:0 10px 22px -12px rgba(0,0,0,.55);" style-hover="transform:translateY(-2px);">Tüm Etkinlikleri Gör →</a>
+    </div>
+  </section>
+
+  <!-- ABOUT TEASER -->
+  <section style="background:#ECE6D6;border-bottom:1px solid #DED6C0;">
+    <div style="max-width:1440px;margin:0 auto;padding:clamp(56px,7vw,96px) 28px;display:flex;flex-wrap:wrap;gap:54px;align-items:center;">
+      <div style="flex:1 1 420px;animation:revealUp both;animation-timeline:view();animation-range:entry 0% cover 30%;">
+        <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.24em;color:#B07A33;margin-bottom:16px;">FESTİVAL HAKKINDA</div>
+        <h2 style="margin:0 0 22px;font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(30px,4vw,46px);line-height:1.05;color:#16263F;">Karadeniz'in bereketi, bir araya geliyor</h2>
+        <p style="font-family:'Source Serif 4',serif;font-size:18px;line-height:1.7;color:#3C4A5C;margin:0 0 26px;">Ordu Gastronomi Festivali; yörenin verimli toprağında yetişen ürünleri, asırlık mutfak kültürünü ve üretici emeğini görünür kılmak için Tayfun Gürsoy Parkı'nda kapılarını açıyor. İki gün boyunca atölyeler, söyleşiler, yarışmalar ve konserlerle Ordu'nun gastronomi mirasını kutluyoruz.</p>
+        <div ref="{{ statsRef }}" style="display:flex;flex-wrap:wrap;gap:14px 40px;margin-bottom:30px;">
+          <sc-for list="{{ stats }}" as="s" hint-placeholder-count="4">
+            <div>
+              <div style="font-family:'Archivo',sans-serif;font-weight:900;font-size:40px;color:#5C7A2E;line-height:1;font-variant-numeric:tabular-nums;">{{ s.shown }}</div>
+              <div style="font-family:'Archivo',sans-serif;font-weight:600;font-size:13px;letter-spacing:.06em;color:#5A6B7E;margin-top:7px;text-transform:uppercase;">{{ s.l }}</div>
+            </div>
+          </sc-for>
+        </div>
+        <a href="Festival.dc.html" style="text-decoration:none;font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;color:#5C7A2E;border-bottom:2px solid #5C7A2E;padding-bottom:3px;">Festivali Keşfet →</a>
+      </div>
+      <div style="flex:1 1 360px;animation:revealUp both;animation-timeline:view();animation-range:entry 0% cover 30%;">
+        <div style="position:relative;width:100%;aspect-ratio:1/1;border-radius:18px;overflow:hidden;background:repeating-linear-gradient(135deg,#E0D8C2,#E0D8C2 12px,#E8E1CF 12px,#E8E1CF 24px);box-shadow:0 30px 60px -30px rgba(22,38,63,.4);">
+          <video ref="{{ videoRef }}" autoplay muted loop playsinline poster="{{ videoPoster }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:{{ videoDisplay }};"></video>
+          <span style="position:absolute;inset:0;display:{{ videoFallbackDisplay }};flex-direction:column;align-items:center;justify-content:center;gap:16px;text-align:center;padding:24px;">
+            <span style="display:flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:rgba(92,122,46,.16);border:1.5px solid rgba(92,122,46,.4);">
+              <span style="width:0;height:0;border-style:solid;border-width:11px 0 11px 18px;border-color:transparent transparent transparent #5C7A2E;margin-left:4px;"></span>
+            </span>
+            <span style="font-family:ui-monospace,monospace;font-size:12.5px;line-height:1.6;color:#8A8062;">video · festival atmosferi<br>sessiz · döngü · 1:1</span>
+          </span>
+          <div style="position:absolute;left:14px;bottom:14px;display:{{ videoBadgeDisplay }};align-items:center;gap:8px;padding:7px 13px;border-radius:999px;background:rgba(22,38,63,.6);backdrop-filter:blur(4px);">
+            <span style="width:7px;height:7px;border-radius:50%;background:#9DB36A;animation:floaty 2.4s ease-in-out infinite;"></span>
+            <span style="font-family:'Archivo',sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.12em;color:#F4F0E5;text-transform:uppercase;">Canlı Festivalden</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEZZETLER TEASER -->
+  <section style="background:#ECE6D6;border-top:1px solid #DED6C0;border-bottom:1px solid #DED6C0;">
+    <div style="max-width:1440px;margin:0 auto;padding:clamp(56px,7vw,96px) 28px;">
+      <div style="text-align:center;max-width:680px;margin:0 auto 50px;animation:revealUp both;animation-timeline:view();animation-range:entry 0% cover 24%;">
+        <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.24em;color:#B07A33;margin-bottom:14px;">TESCİLLİ & YÖRESEL LEZZETLER</div>
+        <h2 style="margin:0 0 16px;font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(30px,4vw,46px);line-height:1.05;color:#16263F;">Ordu'nun sofrası</h2>
+        <p style="font-family:'Source Serif 4',serif;font-size:18px;line-height:1.6;color:#5A6B7E;margin:0;">Fındıktan hamsiye, mıhlamadan karalahanaya; festivalde tadabileceğiniz lezzetlerden bir seçki.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:22px;">
+        <sc-for list="{{ topFlavors }}" as="f" hint-placeholder-count="4">
+          <div style="background:#FCFBF6;border:1px solid #E4DDC9;border-radius:16px;overflow:hidden;transition:transform .25s ease,box-shadow .25s ease;animation:revealUp both;animation-timeline:view();animation-range:entry 0% cover 26%;" style-hover="transform:translateY(-5px);box-shadow:0 18px 34px -22px rgba(22,38,63,.45);">
+            <div style="position:relative;width:100%;aspect-ratio:4/3;background:repeating-linear-gradient(135deg,#E4DDC9,#E4DDC9 11px,#ECE6D6 11px,#ECE6D6 22px);">
+              <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:ui-monospace,monospace;font-size:12px;color:#8A8062;text-align:center;padding:16px;">fotoğraf · {{ f.name }}</span>
+              <span style="position:absolute;top:12px;left:12px;background:#5C7A2E;color:#F7F4EA;font-family:'Archivo',sans-serif;font-weight:700;font-size:11px;letter-spacing:.06em;padding:6px 11px;border-radius:999px;">{{ f.tag }}</span>
+            </div>
+            <div style="padding:18px 20px 22px;">
+              <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:19px;color:#16263F;">{{ f.name }}</div>
+              <div style="font-family:'Source Serif 4',serif;font-size:14.5px;line-height:1.5;color:#5A6B7E;margin-top:7px;">{{ f.desc }}</div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="text-align:center;margin-top:42px;">
+        <a href="Lezzetler.dc.html" style="text-decoration:none;font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;color:#5C7A2E;border-bottom:2px solid #5C7A2E;padding-bottom:3px;">Tüm Lezzetler →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAND CTA -->
+  <section style="background:#5C7A2E;color:#F4F0E5;">
+    <div style="max-width:1440px;margin:0 auto;padding:clamp(56px,7vw,90px) 28px;">
+      <div style="text-align:center;max-width:760px;margin:0 auto 44px;animation:revealUp both;animation-timeline:view();animation-range:entry 0% cover 24%;">
+        <div style="display:inline-block;background:rgba(247,244,234,.16);font-family:'Archivo',sans-serif;font-weight:700;font-size:14px;letter-spacing:.1em;padding:10px 24px;border-radius:999px;margin-bottom:22px;">STANT AÇMAK İSTEYENLER İÇİN</div>
+        <h2 style="margin:0 0 16px;font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(28px,3.6vw,42px);line-height:1.1;color:#F7F4EA;">Festival alanında yerinizi alın</h2>
+        <p style="font-family:'Source Serif 4',serif;font-size:18px;line-height:1.6;color:#E2E8CF;margin:0;">Kamu kurumları, üreticiler, kooperatifler ve yerel paydaşlar; stant başvuru formunu doldurarak Ordu'nun lezzetlerini birlikte tanıtalım.</p>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:center;background:#435C20;border-radius:18px;padding:28px 32px;">
+        <div style="flex:1 1 280px;">
+          <div style="font-family:'Archivo',sans-serif;font-weight:600;font-size:13px;letter-spacing:.14em;color:#C9D6A6;">SON BAŞVURU TARİHİ</div>
+          <div style="font-family:'Archivo',sans-serif;font-weight:900;font-size:30px;color:#F7F4EA;margin-top:4px;">17 TEMMUZ 2026</div>
+          <div style="font-family:'Source Serif 4',serif;font-size:15px;color:#D7E0BC;margin-top:4px;">Cuma · Mesai bitimine kadar</div>
+        </div>
+        <a href="Basvuru.dc.html" style="text-decoration:none;background:#F7F4EA;color:#435C20;font-family:'Archivo',sans-serif;font-weight:800;font-size:16px;padding:17px 36px;border-radius:999px;white-space:nowrap;transition:transform .2s ease;" style-hover="transform:translateY(-2px);">Başvuru Formuna Git →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWS TEASER -->
+  <section style="max-width:1440px;margin:0 auto;padding:clamp(56px,7vw,96px) 28px;">
+    <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between;margin-bottom:42px;animation:revealUp both;animation-timeline:view();animation-range:entry 0% cover 24%;">
+      <div>
+        <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.24em;color:#B07A33;margin-bottom:14px;">BİZDEN HABERLER</div>
+        <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(30px,4vw,46px);line-height:1.05;color:#16263F;">Festivalden son gelişmeler</h2>
+      </div>
+      <a href="Haberler.dc.html" style="text-decoration:none;font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;color:#5C7A2E;border-bottom:2px solid #5C7A2E;padding-bottom:3px;">Tümünü Gör →</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;">
+      <sc-for list="{{ news }}" as="n" hint-placeholder-count="3">
+        <a href="Haberler.dc.html" style="text-decoration:none;display:block;background:#FCFBF6;border:1px solid #E4DDC9;border-radius:16px;overflow:hidden;transition:transform .25s ease,box-shadow .25s ease;animation:revealUp both;animation-timeline:view();animation-range:entry 0% cover 26%;" style-hover="transform:translateY(-5px);box-shadow:0 18px 34px -22px rgba(22,38,63,.45);">
+          <div style="position:relative;width:100%;aspect-ratio:16/10;background:repeating-linear-gradient(135deg,#E4DDC9,#E4DDC9 11px,#ECE6D6 11px,#ECE6D6 22px);">
+            <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:ui-monospace,monospace;font-size:12px;color:#8A8062;">haber görseli</span>
+          </div>
+          <div style="padding:22px 24px 26px;">
+            <div style="font-family:'Archivo',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:.08em;color:#B07A33;text-transform:uppercase;">{{ n.date }}</div>
+            <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:19px;line-height:1.3;color:#16263F;margin:10px 0 10px;">{{ n.title }}</div>
+            <div style="font-family:'Source Serif 4',serif;font-size:15px;line-height:1.55;color:#5A6B7E;">{{ n.excerpt }}</div>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <dc-import name="Footer" hint-size="100%,360px"></dc-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;heroLayout&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;split&quot;,&quot;centered&quot;],&quot;default&quot;:&quot;split&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Hero&quot;},&quot;festivalVideo&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Festival Hakkında&quot;,&quot;unit&quot;:&quot;&quot;},&quot;festivalPoster&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Festival Hakkında&quot;}}">
+class Component extends DCLogic {
+  state = { vw: (typeof window !== 'undefined' ? window.innerWidth : 1200), now: Date.now(), statN: [0, 0, 0, 0] };
+
+  constructor(props) { super(props); this.statsRef = React.createRef(); this.videoRef = React.createRef(); this._counted = false; }
+
+  applyVideo() {
+    const src = (this.props.festivalVideo || '').trim();
+    const el = this.videoRef.current;
+    if (el && src && el.getAttribute('src') !== src) { el.setAttribute('src', src); el.load(); el.play && el.play().catch(() => {}); }
+  }
+  componentDidUpdate() { this.applyVideo(); }
+
+  componentDidMount() {
+    this._onResize = () => {
+      if (this._raf) cancelAnimationFrame(this._raf);
+      this._raf = requestAnimationFrame(() => this.setState({ vw: window.innerWidth }));
+    };
+    window.addEventListener('resize', this._onResize);
+    this._tick = setInterval(() => this.setState({ now: Date.now() }), 1000);
+    this.applyVideo();
+
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) { this.setState({ statN: [2, 50, 100, 7] }); return; }
+    if (this.statsRef.current && 'IntersectionObserver' in window) {
+      this._io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting && !this._counted) { this._counted = true; this.animateStats(); } });
+      }, { threshold: 0.4 });
+      this._io.observe(this.statsRef.current);
+    } else { this.animateStats(); }
+  }
+  animateStats() {
+    const targets = [2, 50, 100, 7]; const dur = 1400; const start = performance.now();
+    const step = (t) => {
+      const p = Math.min(1, (t - start) / dur); const e = 1 - Math.pow(1 - p, 3);
+      this.setState({ statN: targets.map(v => Math.round(v * e)) });
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+  componentWillUnmount() {
+    if (this._onResize) window.removeEventListener('resize', this._onResize);
+    if (this._tick) clearInterval(this._tick);
+    if (this._io) this._io.disconnect();
+  }
+
+  renderVals() {
+    const layout = this.props.heroLayout ?? 'split';
+    const isMobile = this.state.vw < 880;
+    const heroSplit = (layout === 'split') && !isMobile;
+
+    const activities = [
+      { n: '01', t: "Şef Workshop'ları", d: 'Yerli ve yabancı şeflerle canlı mutfak atölyeleri.' },
+      { n: '02', t: 'Yöresel Lezzet Sokağı', d: 'Ordu mutfağının tüm renklerinin sergilendiği sokak.' },
+      { n: '03', t: 'Local Chef Yarışması', d: 'Yörenin şeflerinin kıyasıya yarıştığı sahne.' },
+      { n: '04', t: 'Açık Hava Konserleri', d: 'İki gece boyunca ana sahnede müzik dolu anlar.' },
+      { n: '05', t: 'Söyleşi & Paneller', d: 'Gastronomi, sürdürülebilirlik ve kültür üzerine sohbetler.' },
+      { n: '06', t: 'Üretici Pazarı', d: 'Kooperatif ve üreticilerin doğrudan satış stantları.' },
+      { n: '07', t: 'Fındık Atölyeleri', d: 'Ordu fındığının topraktan sofraya yolculuğu.' },
+      { n: '08', t: 'Çocuk Köyü', d: 'Miniklere özel oyun, atölye ve gösteri alanı.' },
+      { n: '09', t: 'Karadeniz Kültür Sahnesi', d: 'Halk oyunları, türküler ve yöresel gösteriler.' }
+    ];
+    const statDefs = [
+      { s: '', l: 'Gün' }, { s: '+', l: 'Stant & Üretici' },
+      { s: '+', l: 'Yöresel Lezzet' }, { s: '', l: 'Katılımcı Grubu' }
+    ];
+    const sv = this.state.statN || [0, 0, 0, 0];
+    const stats = statDefs.map((d, i) => ({ shown: (sv[i] ?? 0) + d.s, l: d.l }));
+
+    const target = new Date('2026-07-30T10:00:00').getTime();
+    let diff = Math.max(0, target - (this.state.now || Date.now()));
+    const dd = Math.floor(diff / 86400000); diff -= dd * 86400000;
+    const hh = Math.floor(diff / 3600000); diff -= hh * 3600000;
+    const mm = Math.floor(diff / 60000); diff -= mm * 60000;
+    const ss = Math.floor(diff / 1000);
+    const pad = n => String(n).padStart(2, '0');
+    const countdown = [
+      { v: String(dd), l: 'Gün' }, { v: pad(hh), l: 'Saat' },
+      { v: pad(mm), l: 'Dakika' }, { v: pad(ss), l: 'Saniye' }
+    ];
+    const flavors = [
+      { name: 'Ordu Fındığı', tag: 'Coğrafi İşaret', desc: 'Dünyaca ünlü, ince kabuklu Ordu fındığı; festivalin baş tacı.' },
+      { name: 'Karadeniz Pidesi', tag: 'Fırın', desc: 'Tereyağı ve yöresel peynirle açılan kayık biçimli pide.' },
+      { name: 'Mıhlama (Kuymak)', tag: 'Sıcak', desc: 'Mısır unu, tereyağı ve telli peynirin buluştuğu klasik.' },
+      { name: 'Hamsi Tava', tag: 'Deniz', desc: 'Mısır ununa bulanıp kızartılan taze Karadeniz hamsisi.' }
+    ];
+    const news = [
+      { date: '12 Temmuz 2026', title: 'Ordu Gastronomi Festivali İçin Geri Sayım Başladı', excerpt: 'Tayfun Gürsoy Parkı, iki gün sürecek lezzet şölenine hazırlanıyor.' },
+      { date: '8 Temmuz 2026', title: 'Stant Başvuruları Tüm Yurttan İlgi Görüyor', excerpt: 'Kooperatifler ve üreticilerden yoğun başvuru talebi geliyor.' },
+      { date: '2 Temmuz 2026', title: "Karadeniz'in Şefleri Ordu'da Buluşuyor", excerpt: 'Workshop programında yöresel mutfak ön planda olacak.' }
+    ];
+
+    const offs = ['0', '16px', '6px', '22px', '0', '14px', '8px', '20px', '4px'];
+    const collageA = activities.concat(activities).map((a, i) => ({ n: a.n, t: a.t, off: offs[i % offs.length] }));
+    const collageB = activities.slice().reverse();
+    const collageBFull = collageB.concat(collageB).map(a => ({ n: a.n, t: a.t }));
+
+    const hasVideo = !!(this.props.festivalVideo || '').trim();
+
+    return {
+      heroSplit,
+      collageA,
+      collageB: collageBFull,
+      videoRef: this.videoRef,
+      videoPoster: this.props.festivalPoster || '',
+      videoDisplay: hasVideo ? 'block' : 'none',
+      videoFallbackDisplay: hasVideo ? 'none' : 'flex',
+      videoBadgeDisplay: hasVideo ? 'flex' : 'none',
+      heroJustify: heroSplit ? 'space-between' : 'center',
+      heroJustify2: heroSplit ? 'flex-start' : 'center',
+      heroTextAlign: heroSplit ? 'left' : 'center',
+      heroMax: heroSplit ? '700px' : '780px',
+      heroPLeft: heroSplit ? '0' : 'auto',
+      activities,
+      topActivities: activities.slice(0, 3),
+      stats,
+      statsRef: this.statsRef,
+      countdown,
+      topFlavors: flavors,
+      news
+    };
+  }
+}
+</script>
+</body>
+</html>
