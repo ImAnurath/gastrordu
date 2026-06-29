@@ -33,7 +33,7 @@ export default function Home() {
 
       {/* HERO */}
       <section className="relative bg-cream">
-        <div className="mx-auto flex max-w-[1240px] flex-wrap items-center justify-between gap-12 px-7 py-[clamp(40px,7vw,84px)]">
+        <div className="mx-auto flex max-w-[1440px] flex-wrap items-center justify-between gap-12 px-7 py-[clamp(40px,7vw,84px)]">
           <div className="min-w-0 max-w-[620px] flex-[1_1_460px]">
             <div className="mb-[22px] font-heading text-[13px] font-bold tracking-[0.28em] text-bronze [animation:heroIn_.7s_ease_both] [animation-delay:.04s]">
               YEDAŞ SUNAR · ORDU İL KÜLTÜR VE TURİZM MÜDÜRLÜĞÜ
@@ -100,7 +100,7 @@ export default function Home() {
 
       {/* ABOUT TEASER */}
       <section className="border-b border-[#DED6C0] bg-[#ECE6D6]">
-        <div className="mx-auto flex max-w-[1240px] flex-wrap items-center gap-[54px] px-7 py-[clamp(56px,7vw,96px)]">
+        <div className="mx-auto flex max-w-[1440px] flex-wrap items-center gap-[54px] px-7 py-[clamp(56px,7vw,96px)]">
           <div className="flex-[1_1_420px]">
             <div className="mb-4 font-heading text-[13px] font-bold tracking-[0.24em] text-bronze">FESTİVAL HAKKINDA</div>
             <h2 className="mb-[22px] mt-0 font-heading text-[clamp(30px,4vw,46px)] font-extrabold leading-[1.05] text-navy">
@@ -130,7 +130,7 @@ export default function Home() {
       </section>
 
       {/* HIGHLIGHTS TEASER */}
-      <section className="mx-auto max-w-[1240px] px-7 py-[clamp(56px,7vw,96px)]">
+      <section className="mx-auto max-w-[1440px] px-7 py-[clamp(56px,7vw,96px)]">
         <div className="mb-[42px] flex flex-wrap items-end justify-between gap-4">
           <div>
             <div className="mb-[14px] font-heading text-[13px] font-bold tracking-[0.24em] text-bronze">FESTİVALDE NELER VAR?</div>
@@ -156,7 +156,7 @@ export default function Home() {
 
       {/* LEZZETLER TEASER */}
       <section className="border-y border-[#DED6C0] bg-[#ECE6D6]">
-        <div className="mx-auto max-w-[1240px] px-7 py-[clamp(56px,7vw,96px)]">
+        <div className="mx-auto max-w-[1440px] px-7 py-[clamp(56px,7vw,96px)]">
           <div className="mx-auto mb-[50px] max-w-[680px] text-center">
             <div className="mb-[14px] font-heading text-[13px] font-bold tracking-[0.24em] text-bronze">TESCİLLİ &amp; YÖRESEL LEZZETLER</div>
             <h2 className="mb-4 mt-0 font-heading text-[clamp(30px,4vw,46px)] font-extrabold leading-[1.05] text-navy">Ordu&apos;nun sofrası</h2>
@@ -192,7 +192,7 @@ export default function Home() {
 
       {/* STAND CTA */}
       <section className="bg-olive text-cream">
-        <div className="mx-auto max-w-[1240px] px-7 py-[clamp(56px,7vw,90px)]">
+        <div className="mx-auto max-w-[1440px] px-7 py-[clamp(56px,7vw,90px)]">
           <div className="mx-auto mb-[44px] max-w-[760px] text-center">
             <div className="mb-[22px] inline-block rounded-full bg-[#F7F4EA]/[.16] px-6 py-[10px] font-heading text-sm font-bold tracking-[0.1em]">
               STANT AÇMAK İSTEYENLER İÇİN
@@ -221,7 +221,7 @@ export default function Home() {
       </section>
 
       {/* NEWS TEASER */}
-      <section className="mx-auto max-w-[1240px] px-7 py-[clamp(56px,7vw,96px)]">
+      <section className="mx-auto max-w-[1440px] px-7 py-[clamp(56px,7vw,96px)]">
         <div className="mb-[42px] flex flex-wrap items-end justify-between gap-4">
           <div>
             <div className="mb-[14px] font-heading text-[13px] font-bold tracking-[0.24em] text-bronze">BİZDEN HABERLER</div>

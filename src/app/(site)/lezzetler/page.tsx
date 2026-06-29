@@ -10,7 +10,7 @@ export default function Lezzetler() {
 
       {/* TITLE BAND */}
       <section className="bg-navy text-[#EDE7D6]">
-        <div className="mx-auto max-w-[1240px] px-7 py-[clamp(44px,5vw,68px)]">
+        <div className="mx-auto max-w-[1440px] px-7 py-[clamp(44px,5vw,68px)]">
           <div className="mb-[14px] font-heading text-[13px] font-semibold tracking-[0.14em] text-olive-light">
             <Link href="/" className="text-olive-light no-underline">ANASAYFA</Link> · LEZZETLER
           </div>
@@ -24,7 +24,7 @@ export default function Lezzetler() {
       </section>
 
       {/* GALLERY */}
-      <section className="mx-auto max-w-[1240px] px-7 py-[clamp(56px,7vw,90px)]">
+      <section className="mx-auto max-w-[1440px] px-7 py-[clamp(56px,7vw,90px)]">
         <Gallery items={gallery} />
       </section>
     </>

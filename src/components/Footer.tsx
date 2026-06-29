@@ -14,7 +14,7 @@ const QUICK_LINKS = [
 export function Footer() {
   return (
     <footer className="bg-navy text-[#C3CCDB]">
-      <div className="mx-auto max-w-[1240px] px-7 pb-7 pt-[60px]">
+      <div className="mx-auto max-w-[1440px] px-7 pb-7 pt-[60px]">
         <div className="flex flex-wrap justify-between gap-10">
           {/* Brand + description + socials */}
           <div className="max-w-[420px] flex-[1_1_320px]">

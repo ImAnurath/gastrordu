@@ -29,7 +29,7 @@ export default function Festival() {
 
       {/* TITLE BAND */}
       <section className="bg-navy text-[#EDE7D6]">
-        <div className="mx-auto max-w-[1240px] px-7 py-[clamp(44px,5vw,68px)]">
+        <div className="mx-auto max-w-[1440px] px-7 py-[clamp(44px,5vw,68px)]">
           <div className="mb-[14px] font-heading text-[13px] font-semibold tracking-[0.14em] text-olive-light">
             <Link href="/" className="text-olive-light no-underline">ANASAYFA</Link> · FESTİVAL
           </div>
@@ -41,7 +41,7 @@ export default function Festival() {
       </section>
 
       {/* ABOUT */}
-      <section className="mx-auto flex max-w-[1240px] flex-wrap items-center gap-[54px] px-7 py-[clamp(56px,7vw,90px)]">
+      <section className="mx-auto flex max-w-[1440px] flex-wrap items-center gap-[54px] px-7 py-[clamp(56px,7vw,90px)]">
         <div className="flex-[1_1_440px]">
           <div className="mb-4 font-heading text-[13px] font-bold tracking-[0.24em] text-bronze">KARADENİZ&apos;İN BEREKETİ</div>
           <h2 className="mb-[22px] mt-0 font-heading text-[clamp(28px,3.6vw,42px)] font-extrabold leading-[1.1] text-navy">
@@ -68,7 +68,7 @@ export default function Festival() {
 
       {/* STATS */}
       <section className="border-y border-[#DED6C0] bg-[#ECE6D6]">
-        <div className="mx-auto flex max-w-[1240px] flex-wrap justify-center gap-x-[56px] gap-y-6 px-7 py-[clamp(40px,5vw,60px)]">
+        <div className="mx-auto flex max-w-[1440px] flex-wrap justify-center gap-x-[56px] gap-y-6 px-7 py-[clamp(40px,5vw,60px)]">
           {STATS.map((s) => (
             <div key={s.l} className="text-center">
               <div className="font-heading text-[clamp(40px,5vw,56px)] font-black leading-none text-olive">{s.n}</div>
@@ -79,7 +79,7 @@ export default function Festival() {
       </section>
 
       {/* HIGHLIGHTS */}
-      <section className="mx-auto max-w-[1240px] px-7 py-[clamp(56px,7vw,96px)]">
+      <section className="mx-auto max-w-[1440px] px-7 py-[clamp(56px,7vw,96px)]">
         <div className="mx-auto mb-[50px] max-w-[640px] text-center">
           <div className="mb-[14px] font-heading text-[13px] font-bold tracking-[0.24em] text-bronze">FESTİVALDE NELER VAR?</div>
           <h2 className="m-0 font-heading text-[clamp(28px,3.6vw,42px)] font-extrabold leading-[1.1] text-navy">İki gün, sayısız deneyim</h2>
@@ -105,7 +105,7 @@ export default function Festival() {
 
       {/* SUPPORTERS / SPONSORS */}
       <section className="border-t border-[#DED6C0] bg-[#ECE6D6]">
-        <div className="mx-auto max-w-[1240px] px-7 py-[clamp(56px,7vw,90px)]">
+        <div className="mx-auto max-w-[1440px] px-7 py-[clamp(56px,7vw,90px)]">
           <div className="mx-auto mb-12 max-w-[640px] text-center">
             <div className="mb-[14px] font-heading text-[13px] font-bold tracking-[0.24em] text-bronze">DESTEKLEYENLER</div>
             <h2 className="m-0 font-heading text-[clamp(28px,3.6vw,42px)] font-extrabold leading-[1.1] text-navy">Paydaşlar &amp; Sponsorlar</h2>

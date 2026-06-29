@@ -23,7 +23,7 @@ export function Header({ active, showTopBar = true }: { active: ActivePage; show
     <div className="sticky top-0 left-0 right-0 z-[80]">
       {showTopBar && (
         <div className="bg-olive-deep text-[#E8EDD9] font-heading text-[12.5px] tracking-[0.04em]">
-          <div className="mx-auto flex max-w-[1240px] flex-wrap items-center justify-between gap-x-[26px] gap-y-[10px] px-7 py-[9px]">
+          <div className="mx-auto flex max-w-[1440px] flex-wrap items-center justify-between gap-x-[26px] gap-y-[10px] px-7 py-[9px]">
             <div className="flex flex-wrap items-center gap-x-[22px] gap-y-2">
               <span className="font-semibold">{festival.dateLabel.toLocaleUpperCase('tr-TR')}</span>
               <span className="opacity-55">•</span>
@@ -39,7 +39,7 @@ export function Header({ active, showTopBar = true }: { active: ActivePage; show
       )}
 
       <header className="border-b border-[#DED6C0] bg-cream/95 backdrop-blur-[10px]">
-        <div className="mx-auto flex max-w-[1240px] items-center justify-between gap-5 px-7 py-[13px]">
+        <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-5 px-7 py-[13px]">
           <Link href="/" className="flex items-center gap-[13px] no-underline">
             <div className="flex h-11 w-11 flex-none items-center justify-center rounded-full border-2 border-dashed border-[#B5AA8A] font-mono text-[9px] tracking-[0.05em] text-[#8A8062]">
               LOGO

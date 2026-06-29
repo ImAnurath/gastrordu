@@ -13,7 +13,7 @@ export default function Iletisim() {
 
       {/* TITLE BAND */}
       <section className="bg-navy text-[#EDE7D6]">
-        <div className="mx-auto max-w-[1240px] px-7 py-[clamp(44px,5vw,68px)]">
+        <div className="mx-auto max-w-[1440px] px-7 py-[clamp(44px,5vw,68px)]">
           <div className="mb-[14px] font-heading text-[13px] font-semibold tracking-[0.14em] text-olive-light">
             <Link href="/" className="text-olive-light no-underline">ANASAYFA</Link> · İLETİŞİM
           </div>
@@ -21,7 +21,7 @@ export default function Iletisim() {
         </div>
       </section>
 
-      <section className="mx-auto flex max-w-[1240px] flex-wrap items-start gap-12 px-7 py-[clamp(56px,7vw,90px)]">
+      <section className="mx-auto flex max-w-[1440px] flex-wrap items-start gap-12 px-7 py-[clamp(56px,7vw,90px)]">
         {/* Contact details */}
         <div className="flex-[1_1_340px]">
           <h2 className="mb-[26px] mt-0 font-heading text-[clamp(26px,3vw,34px)] font-extrabold leading-tight text-navy">Bize ulaşın</h2>
