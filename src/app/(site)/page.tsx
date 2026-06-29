@@ -3,6 +3,7 @@ import { Header } from '@/components/Header'
 import { festival } from '@/content/festival'
 import { gallery } from '@/content/gallery'
 import { news } from '@/content/news'
+import { flavors } from '@/content/flavors'
 import { Countdown } from '@/components/Countdown'
 import { CollageStrip } from '@/components/CollageStrip'
 
@@ -26,7 +27,7 @@ const STATS = [
 ]
 
 export default function Home() {
-  const foods = gallery.filter((g) => g.category === 'food').slice(0, 4)
+  const foods = flavors.slice(0, 4)
   const scenic = gallery.find((g) => g.category === 'scenic')
 
   return (
@@ -87,7 +88,7 @@ export default function Home() {
       {/* ABOUT TEASER */}
       <section className="border-b border-[#DED6C0] bg-[#ECE6D6]">
         <div className="mx-auto flex max-w-[1440px] flex-wrap items-center gap-[54px] px-7 py-[clamp(56px,7vw,96px)]">
-          <div className="flex-[1_1_420px]">
+          <div className="flex-[1_1_420px] [animation:revealUp_both] [animation-timeline:view()] [animation-range:entry_0%_cover_30%]">
             <div className="mb-4 font-heading text-[13px] font-bold tracking-[0.24em] text-bronze">FESTİVAL HAKKINDA</div>
             <h2 className="mb-[22px] mt-0 font-heading text-[clamp(30px,4vw,46px)] font-extrabold leading-[1.05] text-navy">
               Karadeniz&apos;in bereketi, bir araya geliyor
@@ -107,7 +108,7 @@ export default function Home() {
               Festivali Keşfet →
             </Link>
           </div>
-          <div className="flex-[1_1_360px]">
+          <div className="flex-[1_1_360px] [animation:revealUp_both] [animation-timeline:view()] [animation-range:entry_0%_cover_30%]">
             <div className="relative aspect-square w-full overflow-hidden rounded-[18px]">
               <img src="/images/food-grand-spread.jpeg" alt="Ordu yöresel sofrası" className="h-full w-full object-cover" />
             </div>
@@ -115,35 +116,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* HIGHLIGHTS TEASER */}
-      <section className="mx-auto max-w-[1440px] px-7 py-[clamp(56px,7vw,96px)]">
-        <div className="mb-[42px] flex flex-wrap items-end justify-between gap-4">
-          <div>
-            <div className="mb-[14px] font-heading text-[13px] font-bold tracking-[0.24em] text-bronze">FESTİVALDE NELER VAR?</div>
-            <h2 className="m-0 font-heading text-[clamp(30px,4vw,46px)] font-extrabold leading-[1.05] text-navy">İki gün, sayısız deneyim</h2>
-          </div>
-          <Link href="/festival" className="border-b-2 border-olive pb-[3px] font-heading text-[15px] font-bold text-olive no-underline">
-            Tüm Etkinlikler →
-          </Link>
-        </div>
-        <div className="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-[18px]">
-          {ACTIVITIES.slice(0, 3).map((a) => (
-            <div
-              key={a.n}
-              className="flex flex-col gap-[14px] rounded-2xl border border-[#E4DDC9] bg-[#FCFBF6] p-[28px] transition hover:-translate-y-[5px] hover:shadow-[0_18px_34px_-22px_rgba(22,38,63,.45)]"
-            >
-              <div className="font-heading text-[30px] font-black leading-none text-[#DCD2B6]">{a.n}</div>
-              <div className="font-heading text-[19px] font-bold leading-tight text-navy">{a.t}</div>
-              <div className="font-body text-[15px] leading-snug text-[#5A6B7E]">{a.d}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* LEZZETLER TEASER */}
       <section className="border-y border-[#DED6C0] bg-[#ECE6D6]">
         <div className="mx-auto max-w-[1440px] px-7 py-[clamp(56px,7vw,96px)]">
-          <div className="mx-auto mb-[50px] max-w-[680px] text-center">
+          <div className="mx-auto mb-[50px] max-w-[680px] text-center [animation:revealUp_both] [animation-timeline:view()] [animation-range:entry_0%_cover_24%]">
             <div className="mb-[14px] font-heading text-[13px] font-bold tracking-[0.24em] text-bronze">TESCİLLİ &amp; YÖRESEL LEZZETLER</div>
             <h2 className="mb-4 mt-0 font-heading text-[clamp(30px,4vw,46px)] font-extrabold leading-[1.05] text-navy">Ordu&apos;nun sofrası</h2>
             <p className="m-0 font-body text-lg leading-relaxed text-[#5A6B7E]">
@@ -154,16 +130,17 @@ export default function Home() {
             {foods.map((f) => (
               <div
                 key={f.id}
-                className="overflow-hidden rounded-2xl border border-[#E4DDC9] bg-[#FCFBF6] transition hover:-translate-y-[5px] hover:shadow-[0_18px_34px_-22px_rgba(22,38,63,.45)]"
+                className="overflow-hidden rounded-2xl border border-[#E4DDC9] bg-[#FCFBF6] transition hover:-translate-y-[5px] hover:shadow-[0_18px_34px_-22px_rgba(22,38,63,.45)] [animation:revealUp_both] [animation-timeline:view()] [animation-range:entry_0%_cover_26%]"
               >
                 <div className="relative aspect-[4/3] w-full">
-                  <img src={f.image} alt={f.caption} loading="lazy" className="h-full w-full object-cover" />
+                  <img src={f.image} alt={f.name} loading="lazy" className="h-full w-full object-cover" />
                   <span className="absolute left-3 top-3 rounded-full bg-olive px-[11px] py-[6px] font-heading text-[11px] font-bold tracking-[0.06em] text-[#F7F4EA]">
-                    Yöresel
+                    {f.tag}
                   </span>
                 </div>
                 <div className="px-5 pb-[22px] pt-[18px]">
-                  <div className="font-heading text-[17px] font-extrabold text-navy">{f.caption}</div>
+                  <div className="font-heading text-[19px] font-extrabold text-navy">{f.name}</div>
+                  <div className="mt-[7px] font-body text-[14.5px] leading-[1.5] text-[#5A6B7E]">{f.desc}</div>
                 </div>
               </div>
             ))}
