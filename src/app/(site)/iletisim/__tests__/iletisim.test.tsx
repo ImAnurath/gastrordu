@@ -9,4 +9,9 @@ describe('İletişim page', () => {
     expect(screen.getByText(/0 452 280 17 00/)).toBeInTheDocument()
     expect(screen.getByText(/iktm52@ktb.gov.tr/)).toBeInTheDocument()
   })
+
+  it('shows the map placeholder text', () => {
+    render(<Iletisim />)
+    expect(screen.getByText(/Google Maps yerleştirilecek/)).toBeInTheDocument()
+  })
 })
