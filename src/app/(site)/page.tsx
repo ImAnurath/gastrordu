@@ -3,6 +3,7 @@ import { Header } from '@/components/Header'
 import { festival } from '@/content/festival'
 import { gallery } from '@/content/gallery'
 import { news } from '@/content/news'
+import { Countdown } from '@/components/Countdown'
 
 const ACTIVITIES = [
   { n: '01', t: "Şef Workshop'ları", d: 'Yerli ve yabancı şeflerle canlı mutfak atölyeleri.' },
@@ -77,6 +78,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <Countdown />
 
       {/* MARQUEE */}
       <div className="overflow-hidden border-y border-[#3A4F1B] bg-olive-deep">
