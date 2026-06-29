@@ -59,7 +59,7 @@ export default function Festival() {
           </div>
         </div>
         <div className="flex-[1_1_360px]">
-          <div className="relative aspect-square w-full overflow-hidden rounded-[18px]">
+          <div className="relative aspect-[1000/606] w-full overflow-hidden rounded-[18px]">
             <img src="/images/poster-ordulular-boztepe.jpeg" alt="Ordu — Boztepe ve sahil" className="h-full w-full object-cover" />
           </div>
         </div>

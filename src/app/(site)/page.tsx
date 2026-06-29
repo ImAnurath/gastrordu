@@ -67,7 +67,7 @@ export default function Home() {
           </div>
 
           <div className="relative max-w-[520px] flex-[1_1_380px] [animation:heroIn_.8s_ease_both] [animation-delay:.18s]">
-            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[18px] shadow-[0_30px_60px_-30px_rgba(22,38,63,.4)]">
+            <div className="relative aspect-[1000/606] w-full overflow-hidden rounded-[18px] shadow-[0_30px_60px_-30px_rgba(22,38,63,.4)]">
               {scenic && (
                 <img src={scenic.image} alt={scenic.caption} className="h-full w-full object-cover" />
               )}
