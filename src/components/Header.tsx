@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { festival } from '@/content/festival'
 
@@ -19,8 +19,49 @@ const NAV = [
 export function Header({ active, showTopBar = true }: { active: ActivePage; showTopBar?: boolean }) {
   const [menuOpen, setMenuOpen] = useState(false)
 
+  // Scroll state
+  const [scrolled, setScrolled] = useState(false)
+  const [scrollPct, setScrollPct] = useState(0)
+
+  useEffect(() => {
+    let raf = 0
+    const onScroll = () => {
+      cancelAnimationFrame(raf)
+      raf = requestAnimationFrame(() => {
+        const y = window.scrollY || 0
+        const max = document.documentElement.scrollHeight - window.innerHeight || 1
+        setScrollPct(Math.max(0, Math.min(1, y / max)))
+        setScrolled(y > 8)
+      })
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    onScroll()
+    return () => { window.removeEventListener('scroll', onScroll); cancelAnimationFrame(raf) }
+  }, [])
+
+  // Spacer height — measured from topbar + header only (excludes open mobile dropdown)
+  const barRef = useRef<HTMLDivElement>(null)
+  const [barH, setBarH] = useState(114)
+
+  useEffect(() => {
+    const measure = () => {
+      if (!barRef.current) return
+      const topbar = barRef.current.firstElementChild as HTMLElement | null
+      const header = barRef.current.querySelector('header') as HTMLElement | null
+      let hh = 0
+      if (topbar) hh += topbar.getBoundingClientRect().height
+      if (header && header !== topbar) hh += header.getBoundingClientRect().height
+      const val = hh || 114
+      setBarH(val)
+    }
+    measure()
+    window.addEventListener('resize', measure)
+    return () => window.removeEventListener('resize', measure)
+  }, [])
+
   return (
-    <div className="sticky top-0 left-0 right-0 z-[80]">
+    <>
+    <div ref={barRef} className="fixed top-0 left-0 right-0 z-[80]">
       {showTopBar && (
         <div className="bg-olive-deep text-[#E8EDD9] font-heading text-[12.5px] tracking-[0.04em]">
           <div className="mx-auto flex max-w-[1440px] flex-wrap items-center justify-between gap-x-[26px] gap-y-[10px] px-7 py-[9px]">
@@ -38,7 +79,13 @@ export function Header({ active, showTopBar = true }: { active: ActivePage; show
         </div>
       )}
 
-      <header className="border-b border-[#DED6C0] bg-cream/95 backdrop-blur-[10px]">
+      <header
+        className="relative border-b border-[#DED6C0] bg-cream/95 backdrop-blur-[10px]"
+        style={{
+          boxShadow: scrolled ? '0 10px 30px -16px rgba(22,38,63,.45)' : 'none',
+          transition: 'box-shadow .3s ease',
+        }}
+      >
         <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-5 px-7 py-[13px]">
           <Link href="/" className="flex items-center gap-[13px] no-underline">
             <div className="flex h-11 w-11 flex-none items-center justify-center rounded-full border-2 border-dashed border-[#B5AA8A] font-mono text-[9px] tracking-[0.05em] text-[#8A8062]">
@@ -90,6 +137,16 @@ export function Header({ active, showTopBar = true }: { active: ActivePage; show
             <span className="block h-[2px] w-5 bg-[#F7F4EA]" />
           </button>
         </div>
+
+        {/* Scroll-progress bar */}
+        <div
+          className="absolute left-0 -bottom-px h-[3px]"
+          style={{
+            width: `${(scrollPct * 100).toFixed(2)}%`,
+            background: 'linear-gradient(90deg,#5C7A2E,#9DB36A)',
+            transition: 'width .1s linear',
+          }}
+        />
       </header>
 
       {/* Mobile dropdown */}
@@ -121,5 +178,8 @@ export function Header({ active, showTopBar = true }: { active: ActivePage; show
         </nav>
       )}
     </div>
+    {/* Spacer — keeps content from hiding under the fixed bar */}
+    <div style={{ height: barH }} aria-hidden="true" />
+    </>
   )
 }
