@@ -51,10 +51,10 @@ export function Gallery({ items }: { items: GalleryItem[] }) {
             <div className="relative aspect-[4/3] w-full">
               <img src={item.image} alt={item.caption} loading="lazy" className="h-full w-full object-cover" />
               <span className="absolute left-3 top-3 rounded-full bg-olive px-[11px] py-[6px] font-heading text-[11px] font-bold tracking-[0.06em] text-[#F7F4EA]">
-                {CATEGORY_LABELS[item.category]}
+                {item.tag ?? CATEGORY_LABELS[item.category]}
               </span>
             </div>
-            <figcaption className="px-[22px] pb-6 pt-5 font-heading text-[18px] font-extrabold text-navy">
+            <figcaption className="px-[22px] pb-6 pt-5 font-heading text-[20px] font-[800] text-navy">
               {item.caption}
             </figcaption>
           </figure>
