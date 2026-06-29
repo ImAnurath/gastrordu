@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import { Header } from '@/components/Header'
 import { festival } from '@/content/festival'
-import { sponsors } from '@/content/sponsors'
 
 const STATS = [
   { n: '2', l: 'Gün' },
@@ -103,27 +102,6 @@ export default function Festival() {
         </div>
       </section>
 
-      {/* SUPPORTERS / SPONSORS */}
-      <section className="border-t border-[#DED6C0] bg-[#ECE6D6]">
-        <div className="mx-auto max-w-[1440px] px-7 py-[clamp(56px,7vw,90px)]">
-          <div className="mx-auto mb-12 max-w-[640px] text-center">
-            <div className="mb-[14px] font-heading text-[13px] font-bold tracking-[0.24em] text-bronze">DESTEKLEYENLER</div>
-            <h2 className="m-0 font-heading text-[clamp(28px,3.6vw,42px)] font-extrabold leading-[1.1] text-navy">Paydaşlar &amp; Sponsorlar</h2>
-          </div>
-          <div className="grid grid-cols-[repeat(auto-fill,minmax(260px,1fr))] gap-[18px]">
-            {sponsors.map((s) => (
-              <div key={s.tier} className="rounded-2xl border border-[#E4DDC9] bg-[#FCFBF6] p-6">
-                <div className="mb-3 font-heading text-[12px] font-bold uppercase tracking-[0.14em] text-bronze">{s.tier}</div>
-                <ul className="m-0 flex list-none flex-col gap-2 p-0">
-                  {s.names.map((name) => (
-                    <li key={name} className="font-body text-[16px] text-navy">{name}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
     </>
   )
 }
