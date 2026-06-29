@@ -55,10 +55,11 @@ export default function Iletisim() {
           </div>
 
           {/* Map placeholder (real Google Maps embed deferred — spec §16) */}
-          <div className="mt-[30px] flex h-[260px] w-full items-center justify-center rounded-[18px] border border-[#DED6C0] bg-[#ECE6D6] p-6 text-center font-heading text-[14px] font-semibold text-[#8A8062]">
-            {festival.venue} · {festival.dateLabel}
-            <br />
-            (Konum haritası yakında eklenecektir)
+          <div className="relative mt-[30px] h-[260px] w-full overflow-hidden rounded-[18px] border border-[#DED6C0]"
+            style={{ backgroundImage: 'repeating-linear-gradient(135deg,#E4DDC9 0px,#E4DDC9 12px,#ECE6D6 12px,#ECE6D6 24px)' }}>
+            <div className="absolute inset-0 flex items-center justify-center p-6 text-center font-mono text-[13px] text-[#8A8062]">
+              harita · Tayfun Gürsoy Parkı<br />(Google Maps yerleştirilecek)
+            </div>
           </div>
         </div>
 
