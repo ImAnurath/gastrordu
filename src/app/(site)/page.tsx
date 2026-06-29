@@ -4,6 +4,7 @@ import { festival } from '@/content/festival'
 import { gallery } from '@/content/gallery'
 import { news } from '@/content/news'
 import { Countdown } from '@/components/Countdown'
+import { CollageStrip } from '@/components/CollageStrip'
 
 const ACTIVITIES = [
   { n: '01', t: "Şef Workshop'ları", d: 'Yerli ve yabancı şeflerle canlı mutfak atölyeleri.' },
@@ -81,25 +82,7 @@ export default function Home() {
 
       <Countdown />
 
-      {/* MARQUEE */}
-      <div className="overflow-hidden border-y border-[#3A4F1B] bg-olive-deep">
-        <div className="flex w-max [animation:marquee_42s_linear_infinite]">
-          {[0, 1].map((dup) => (
-            <div key={dup} className="flex flex-none" aria-hidden={dup === 1}>
-              {ACTIVITIES.map((a) => (
-                <span
-                  key={a.n}
-                  className="inline-flex items-center gap-3 whitespace-nowrap px-[26px] py-[15px] font-heading text-[15px] font-semibold tracking-[0.04em] text-[#E8EDD9]"
-                >
-                  <span className="font-extrabold text-olive-light">{a.n}</span>
-                  {a.t}
-                  <span className="ml-[6px] inline-block h-[5px] w-[5px] rounded-full bg-olive-light" />
-                </span>
-              ))}
-            </div>
-          ))}
-        </div>
-      </div>
+      <CollageStrip images={gallery.map((g) => g.image)} labels={ACTIVITIES.map((a) => a.t)} />
 
       {/* ABOUT TEASER */}
       <section className="border-b border-[#DED6C0] bg-[#ECE6D6]">
