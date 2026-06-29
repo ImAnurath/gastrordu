@@ -20,7 +20,7 @@ export default function Haberler() {
 
       {/* NEWS GRID */}
       <section className="mx-auto max-w-[1440px] px-7 py-[clamp(56px,7vw,90px)]">
-        <div className="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-6">
+        <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-6">
           {news.map((n) => (
             <NewsCard key={n.id} item={n} />
           ))}
