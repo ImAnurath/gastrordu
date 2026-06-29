@@ -6,6 +6,7 @@ import { news } from '@/content/news'
 import { flavors } from '@/content/flavors'
 import { Countdown } from '@/components/Countdown'
 import { CollageStrip } from '@/components/CollageStrip'
+import { ImageLightbox } from '@/components/ImageLightbox'
 
 const ACTIVITIES = [
   { n: '01', t: "Şef Workshop'ları", d: 'Yerli ve yabancı şeflerle canlı mutfak atölyeleri.' },
@@ -67,11 +68,14 @@ export default function Home() {
           </div>
 
           <div className="relative max-w-[520px] flex-[1_1_380px] [animation:heroIn_.8s_ease_both] [animation-delay:.18s]">
-            <div className="relative aspect-[1000/606] w-full overflow-hidden rounded-[18px] shadow-[0_30px_60px_-30px_rgba(22,38,63,.4)]">
-              {scenic && (
-                <img src={scenic.image} alt={scenic.caption} className="h-full w-full object-cover" />
-              )}
-            </div>
+            {scenic && (
+              <ImageLightbox
+                src={scenic.image}
+                alt={scenic.caption}
+                triggerClassName="group relative block aspect-[1000/606] w-full cursor-zoom-in overflow-hidden rounded-[18px] shadow-[0_30px_60px_-30px_rgba(22,38,63,.4)]"
+                imgClassName="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
+              />
+            )}
             <div className="absolute -bottom-[26px] -left-[26px] flex h-[158px] w-[158px] flex-col items-center justify-center rounded-full border-[5px] border-cream bg-olive text-center text-[#F7F4EA] shadow-[0_14px_30px_-10px_rgba(67,92,32,.7)]">
               <div className="font-heading text-[34px] font-black leading-none">30–31</div>
               <div className="mt-[5px] font-heading text-[15px] font-bold tracking-[0.14em]">TEMMUZ</div>

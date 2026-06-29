@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Header } from '@/components/Header'
 import { festival } from '@/content/festival'
+import { ImageLightbox } from '@/components/ImageLightbox'
 
 const STATS = [
   { n: '2', l: 'Gün' },
@@ -59,9 +60,12 @@ export default function Festival() {
           </div>
         </div>
         <div className="flex-[1_1_360px]">
-          <div className="relative aspect-[1000/606] w-full overflow-hidden rounded-[18px]">
-            <img src="/images/poster-ordulular-boztepe.jpeg" alt="Ordu — Boztepe ve sahil" className="h-full w-full object-cover" />
-          </div>
+          <ImageLightbox
+            src="/images/poster-ordulular-boztepe.jpeg"
+            alt="Ordu — Boztepe ve sahil"
+            triggerClassName="group relative block aspect-[1000/606] w-full cursor-zoom-in overflow-hidden rounded-[18px]"
+            imgClassName="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
+          />
         </div>
       </section>
 
