@@ -2,7 +2,6 @@ import Link from 'next/link'
 import { Header } from '@/components/Header'
 import { festival } from '@/content/festival'
 import { gallery } from '@/content/gallery'
-import { news } from '@/content/news'
 import { flavors } from '@/content/flavors'
 import { Countdown } from '@/components/Countdown'
 import { CollageStrip } from '@/components/CollageStrip'
@@ -184,39 +183,6 @@ export default function Home() {
               Başvuru Formuna Git →
             </Link>
           </div>
-        </div>
-      </section>
-
-      {/* NEWS TEASER */}
-      <section className="mx-auto max-w-[1440px] px-7 py-[clamp(56px,7vw,96px)]">
-        <div className="mb-[42px] flex flex-wrap items-end justify-between gap-4">
-          <div>
-            <div className="mb-[14px] font-heading text-[13px] font-bold tracking-[0.24em] text-bronze">BİZDEN HABERLER</div>
-            <h2 className="m-0 font-heading text-[clamp(30px,4vw,46px)] font-extrabold leading-[1.05] text-navy">Festivalden son gelişmeler</h2>
-          </div>
-          <Link href="/haberler" className="border-b-2 border-olive pb-[3px] font-heading text-[15px] font-bold text-olive no-underline">
-            Tümünü Gör →
-          </Link>
-        </div>
-        <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-6">
-          {news.map((n) => (
-            <Link
-              key={n.id}
-              href="/haberler"
-              className="block overflow-hidden rounded-2xl border border-[#E4DDC9] bg-[#FCFBF6] no-underline transition hover:-translate-y-[5px] hover:shadow-[0_18px_34px_-22px_rgba(22,38,63,.45)]"
-            >
-              <div className="relative aspect-[16/10] w-full">
-                <img src={n.coverImage} alt={n.title} loading="lazy" className="h-full w-full object-cover" />
-              </div>
-              <div className="px-6 pb-[26px] pt-[22px]">
-                <div className="font-heading text-[12.5px] font-semibold uppercase tracking-[0.08em] text-bronze">
-                  {new Date(n.date).toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' })}
-                </div>
-                <div className="my-[10px] font-heading text-[19px] font-bold leading-snug text-navy">{n.title}</div>
-                <div className="font-body text-[15px] leading-snug text-[#5A6B7E]">{n.excerpt}</div>
-              </div>
-            </Link>
-          ))}
         </div>
       </section>
     </>
