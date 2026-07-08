@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useSyncExternalStore } from 'react'
 
 const TARGET = new Date('2026-07-30T10:00:00').getTime()
 
@@ -14,14 +14,38 @@ function parts(ms: number) {
   ]
 }
 
+// The countdown reads the live clock, an external mutable source, so we model
+// it with useSyncExternalStore instead of reading Date.now() during render.
+function subscribe(onChange: () => void) {
+  const id = setInterval(onChange, 1000)
+  return () => clearInterval(id)
+}
+
+// getSnapshot must be referentially stable between renders within the same
+// tick, so we bucket to whole seconds and only update the cached value when
+// the second changes. Otherwise sub-second Date.now() drift would loop.
+let cachedSecond = -1
+let cachedNow = 0
+function getSnapshot() {
+  const t = Date.now()
+  const sec = Math.floor(t / 1000)
+  if (sec !== cachedSecond) {
+    cachedSecond = sec
+    cachedNow = t
+  }
+  return cachedNow
+}
+
+// The server has no live clock, so render deterministically from the target
+// (all zeros). The client hydrates to the real remaining time; the number
+// cells carry suppressHydrationWarning for that expected swap.
+function getServerSnapshot() {
+  return TARGET
+}
+
 export function Countdown() {
-  const [now, setNow] = useState<number | null>(null)
-  useEffect(() => {
-    setNow(Date.now())
-    const id = setInterval(() => setNow(Date.now()), 1000)
-    return () => clearInterval(id)
-  }, [])
-  const items = parts(now === null ? TARGET - Date.now() : TARGET - now)
+  const now = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot)
+  const items = parts(TARGET - now)
 
   return (
     <section className="bg-navy">
