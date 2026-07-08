@@ -9,9 +9,8 @@ export default defineConfig(({ mode }) => ({
     environment: 'jsdom',
     globals: true,
     setupFiles: ['./vitest.setup.ts'],
-    // Load .env (all keys, no prefix filter) so tests that hit the DB or external
-    // services see the same vars as the app. Per-file `@vitest-environment node`
-    // opts DB/PDF tests out of jsdom.
+    // Load .env (all keys, no prefix filter). Harmless for the static site;
+    // kept so any future env-dependent test sees the same vars as the app.
     env: loadEnv(mode, process.cwd(), ''),
   },
   resolve: { alias: { '@': path.resolve(__dirname, './src') } },
