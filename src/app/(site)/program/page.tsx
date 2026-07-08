@@ -68,12 +68,6 @@ export default function Program() {
           <div className="max-w-[620px] font-body text-[17px] leading-relaxed">
             Program saatleri ve etkinlik içerikleri güncellenebilir. Tüm etkinlikler ücretsizdir ve festival alanında gerçekleştirilir.
           </div>
-          <Link
-            href="/basvuru"
-            className="whitespace-nowrap rounded-full bg-[#F7F4EA] px-[30px] py-[14px] font-heading text-[15px] font-extrabold text-olive-deep no-underline"
-          >
-            Stant Başvurusu Yap →
-          </Link>
         </div>
       </section>
     </>

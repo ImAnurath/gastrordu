@@ -2,7 +2,6 @@ import { describe, it, expect } from 'vitest'
 import { festival } from '../festival'
 import { sponsors } from '../sponsors'
 import { program } from '../program'
-import { news } from '../news'
 
 describe('content modules', () => {
   it('festival has date + venue', () => {
@@ -16,8 +15,5 @@ describe('content modules', () => {
   it('program items are well formed', () => {
     expect(program.length).toBeGreaterThan(0)
     for (const p of program) expect(p.time).toMatch(/\d/)
-  })
-  it('news has the stand-application announcement first', () => {
-    expect(news[0].slug).toBe('stant-basvurulari-basladi')
   })
 })

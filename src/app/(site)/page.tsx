@@ -2,7 +2,6 @@ import Link from 'next/link'
 import { Header } from '@/components/Header'
 import { festival } from '@/content/festival'
 import { gallery } from '@/content/gallery'
-import { news } from '@/content/news'
 import { flavors } from '@/content/flavors'
 import { Countdown } from '@/components/Countdown'
 import { CollageStrip } from '@/components/CollageStrip'
@@ -52,12 +51,6 @@ export default function Home() {
               Ordu&apos;nun bereketli doğasını köklü kültürel mirasıyla buluşturan eşsiz lezzetleri tanıtmak ve bu mirası gelecek nesillere aktarmak için buluşuyoruz.
             </p>
             <div className="mt-[34px] flex flex-wrap gap-[14px] [animation:heroIn_.7s_ease_both] [animation-delay:.4s]">
-              <Link
-                href="/basvuru"
-                className="rounded-full bg-olive px-8 py-4 font-heading text-base font-bold text-[#F7F4EA] no-underline shadow-[0_8px_22px_-10px_rgba(92,122,46,.7)] transition-transform hover:-translate-y-0.5"
-              >
-                Stant Başvurusu Yap
-              </Link>
               <Link
                 href="/program"
                 className="rounded-full border-[1.5px] border-navy px-8 py-[15px] font-heading text-base font-bold text-navy no-underline transition-transform hover:-translate-y-0.5"
@@ -157,68 +150,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* STAND CTA */}
-      <section className="bg-olive text-cream">
-        <div className="mx-auto max-w-[1440px] px-7 py-[clamp(56px,7vw,90px)]">
-          <div className="mx-auto mb-[44px] max-w-[760px] text-center">
-            <div className="mb-[22px] inline-block rounded-full bg-[#F7F4EA]/[.16] px-6 py-[10px] font-heading text-sm font-bold tracking-[0.1em]">
-              STANT AÇMAK İSTEYENLER İÇİN
-            </div>
-            <h2 className="mb-4 mt-0 font-heading text-[clamp(28px,3.6vw,42px)] font-extrabold leading-[1.1] text-[#F7F4EA]">
-              Festival alanında yerinizi alın
-            </h2>
-            <p className="m-0 font-body text-lg leading-relaxed text-[#E2E8CF]">
-              Kamu kurumları, üreticiler, kooperatifler ve yerel paydaşlar; stant başvuru formunu doldurarak Ordu&apos;nun lezzetlerini birlikte tanıtalım.
-            </p>
-          </div>
-          <div className="flex flex-wrap items-center justify-center gap-5 rounded-[18px] bg-olive-deep px-8 py-7">
-            <div className="flex-[1_1_280px]">
-              <div className="font-heading text-[13px] font-semibold tracking-[0.14em] text-[#C9D6A6]">SON BAŞVURU TARİHİ</div>
-              <div className="mt-1 font-heading text-[30px] font-black text-[#F7F4EA]">17 TEMMUZ 2026</div>
-              <div className="mt-1 font-body text-[15px] text-[#D7E0BC]">Cuma · Mesai bitimine kadar</div>
-            </div>
-            <Link
-              href="/basvuru"
-              className="whitespace-nowrap rounded-full bg-[#F7F4EA] px-9 py-[17px] font-heading text-base font-extrabold text-olive-deep no-underline transition-transform hover:-translate-y-0.5"
-            >
-              Başvuru Formuna Git →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* NEWS TEASER */}
-      <section className="mx-auto max-w-[1440px] px-7 py-[clamp(56px,7vw,96px)]">
-        <div className="mb-[42px] flex flex-wrap items-end justify-between gap-4">
-          <div>
-            <div className="mb-[14px] font-heading text-[13px] font-bold tracking-[0.24em] text-bronze">BİZDEN HABERLER</div>
-            <h2 className="m-0 font-heading text-[clamp(30px,4vw,46px)] font-extrabold leading-[1.05] text-navy">Festivalden son gelişmeler</h2>
-          </div>
-          <Link href="/haberler" className="border-b-2 border-olive pb-[3px] font-heading text-[15px] font-bold text-olive no-underline">
-            Tümünü Gör →
-          </Link>
-        </div>
-        <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-6">
-          {news.map((n) => (
-            <Link
-              key={n.id}
-              href="/haberler"
-              className="block overflow-hidden rounded-2xl border border-[#E4DDC9] bg-[#FCFBF6] no-underline transition hover:-translate-y-[5px] hover:shadow-[0_18px_34px_-22px_rgba(22,38,63,.45)]"
-            >
-              <div className="relative aspect-[16/10] w-full">
-                <img src={n.coverImage} alt={n.title} loading="lazy" className="h-full w-full object-cover" />
-              </div>
-              <div className="px-6 pb-[26px] pt-[22px]">
-                <div className="font-heading text-[12.5px] font-semibold uppercase tracking-[0.08em] text-bronze">
-                  {new Date(n.date).toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' })}
-                </div>
-                <div className="my-[10px] font-heading text-[19px] font-bold leading-snug text-navy">{n.title}</div>
-                <div className="font-body text-[15px] leading-snug text-[#5A6B7E]">{n.excerpt}</div>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
     </>
   )
 }

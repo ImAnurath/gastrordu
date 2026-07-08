@@ -6,7 +6,6 @@ const QUICK_LINKS = [
   { label: 'Festival Hakkında', href: '/festival' },
   { label: 'Program', href: '/program' },
   { label: 'Lezzetler', href: '/lezzetler' },
-  { label: 'Stant Başvurusu', href: '/basvuru' },
 ] as const
 
 export function Footer() {

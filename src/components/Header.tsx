@@ -5,14 +5,13 @@ import Link from 'next/link'
 import { festival } from '@/content/festival'
 
 export type ActivePage =
-  | 'home' | 'festival' | 'program' | 'lezzetler' | 'haberler' | 'iletisim' | 'basvuru'
+  | 'home' | 'festival' | 'program' | 'lezzetler' | 'iletisim'
 
 const NAV = [
   { key: 'home', label: 'Anasayfa', href: '/' },
   { key: 'festival', label: 'Festival', href: '/festival' },
   { key: 'program', label: 'Program', href: '/program' },
   { key: 'lezzetler', label: 'Lezzetler', href: '/lezzetler' },
-  { key: 'haberler', label: 'Haberler', href: '/haberler' },
   { key: 'iletisim', label: 'İletişim', href: '/iletisim' },
 ] as const
 
@@ -114,14 +113,6 @@ export function Header({ active, showTopBar = true }: { active: ActivePage; show
                 </Link>
               )
             })}
-            <Link
-              href="/basvuru"
-              className={`rounded-full px-[22px] py-[11px] font-bold tracking-[0.02em] text-[#F7F4EA] no-underline ${
-                active === 'basvuru' ? 'bg-olive-deep' : 'bg-olive'
-              }`}
-            >
-              Başvuru Yap
-            </Link>
           </nav>
 
           {/* Mobile hamburger */}
@@ -168,13 +159,6 @@ export function Header({ active, showTopBar = true }: { active: ActivePage; show
               </Link>
             )
           })}
-          <Link
-            href="/basvuru"
-            onClick={() => setMenuOpen(false)}
-            className="mt-2 rounded-xl bg-olive py-[13px] text-center text-[#F7F4EA] no-underline"
-          >
-            Başvuru Yap
-          </Link>
         </nav>
       )}
     </div>

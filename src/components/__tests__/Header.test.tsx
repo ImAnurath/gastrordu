@@ -3,12 +3,13 @@ import { render, screen } from '@testing-library/react'
 import { Header } from '../Header'
 
 describe('Header', () => {
-  it('renders all nav links and the application CTA', () => {
+  it('renders all nav links and no application CTA', () => {
     render(<Header active="home" />)
-    for (const label of ['Anasayfa','Festival','Program','Lezzetler','Haberler','İletişim']) {
+    for (const label of ['Anasayfa','Festival','Program','Lezzetler','İletişim']) {
       expect(screen.getByRole('link', { name: label })).toBeInTheDocument()
     }
-    expect(screen.getByRole('link', { name: /Başvuru Yap/i })).toHaveAttribute('href', '/basvuru')
+    expect(screen.queryByRole('link', { name: 'Haberler' })).not.toBeInTheDocument()
+    expect(screen.queryByRole('link', { name: /Başvuru Yap/i })).not.toBeInTheDocument()
   })
   it('marks the active item', () => {
     render(<Header active="program" />)

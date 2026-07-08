@@ -32,5 +32,4 @@ export const gallery: GalleryItem[] = [
   { id: 'poster-main-square', image: '/images/poster-festival-main-square.jpeg', caption: 'Festival tanıtım afişi', category: 'poster' },
   { id: 'poster-ordu-lezzetleri-wide', image: '/images/poster-ordu-lezzetleri-wide.jpeg', caption: 'Ordu lezzetleri', category: 'poster' },
   { id: 'poster-imza-menuleri', image: '/images/poster-imza-menuleri-portrait.jpeg', caption: 'Ordu imza menüleri', category: 'poster' },
-  { id: 'poster-stant-basvuru', image: '/images/poster-stant-basvuru-banner.jpeg', caption: 'Stant başvuruları başladı', category: 'poster' },
 ]
