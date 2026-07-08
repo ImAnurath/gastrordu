@@ -14,6 +14,7 @@ Convert GastroOrdu from a hybrid site (informational pages **+** an online stand
 2. **Entry points:** Removed completely. `/basvuru` and `/durum` return 404. No "apply offline" fallback, no redirects.
 3. **Data & deploy:** Nothing to preserve. The production DB is treated as throwaway. Decommissioning the Neon DB and removing Vercel env vars is a **manual follow-up** (out of code scope).
 4. **Content scope:** Strip *every* mention of applications, including editorial content (news article, gallery poster, home "STANT AÇMAK" section, KVKK notice).
+5. **News/Haberler feature:** The site's only news article *is* the application announcement. Removing it empties the news system, so the **entire Haberler feature is removed** — the `/haberler` route, the `NewsCard` component, the `news` content module, the `NewsItem` type, the home news teaser, and the Haberler nav link. (Discovered during planning; decided 2026-07-08.)
 
 ## Approach
 
@@ -54,18 +55,23 @@ Convert GastroOrdu from a hybrid site (informational pages **+** an online stand
 **Content**
 - `src/content/kvkk.ts` (only consumer is the Wizard) + `src/content/__tests__/kvkk.test.ts`
 
+**News / Haberler feature** (per Decision 5)
+- `src/app/(site)/haberler/` (`page.tsx` + `__tests__/haberler.test.tsx`)
+- `src/components/NewsCard.tsx`
+- `src/content/news.ts`
+- `NewsItem` interface in `src/content/types.ts`
+
 **Prisma / config**
 - `prisma/` (schema + migrations)
 - `prisma.config.ts`
 
 ## What gets EDITED
 
-- **`src/components/Header.tsx`** — remove `basvuru` from the `ActivePage` union; remove the "Başvuru Yap" button in both desktop nav and mobile dropdown.
+- **`src/components/Header.tsx`** — remove `basvuru` and `haberler` from the `ActivePage` union; remove the `Haberler` nav entry; remove the "Başvuru Yap" button in both desktop nav and mobile dropdown.
 - **`src/components/Footer.tsx`** — remove the "Stant Başvurusu" → `/basvuru` quick link.
-- **`src/app/(site)/page.tsx`** — remove the hero "Stant Başvurusu Yap" CTA and the entire "STANT AÇMAK İSTEYENLER İÇİN" section (heading, copy, and "Başvuru Formuna Git" CTA).
+- **`src/app/(site)/page.tsx`** — remove the hero "Stant Başvurusu Yap" CTA, the entire "STANT AÇMAK İSTEYENLER İÇİN" section, and the "BİZDEN HABERLER" news-teaser section; drop the now-unused `news` import.
 - **`src/app/(site)/program/page.tsx`** — remove the "Stant Başvurusu Yap" CTA.
 - **`src/app/(site)/iletisim/page.tsx`** — remove the application block ("Stant tahsis talepleri için resmî başvuru formunu kullanın" + CTA).
-- **`src/content/news.ts`** — delete the `stant-basvurulari-basladi` article.
 - **`src/content/gallery.ts`** — delete the `poster-stant-basvuru` gallery item.
 - **`package.json`**
   - Remove deps: `@prisma/adapter-pg`, `@prisma/client`, `@react-pdf/renderer`, `iron-session`, `pg`, `resend`, `xlsx`.
@@ -73,7 +79,7 @@ Convert GastroOrdu from a hybrid site (informational pages **+** an online stand
   - Remove scripts: `db:generate`, `db:migrate`, `db:studio`.
   - Change `build` from `prisma generate && next build` → `next build`.
 - **`.env` / `.env.example`** — remove `DATABASE_URL`, `RESEND_API_KEY`, `MAIL_FROM`, `ORGANIZER_EMAIL`, `NEXT_PUBLIC_TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET_KEY`, `TURNSTILE_DEV_BYPASS`, `ADMIN_PASSWORD`, `SESSION_PASSWORD`. Confirm whether `NEXT_PUBLIC_APP_URL` (used for email links) is still referenced; drop it if unused.
-- **Affected tests** — `src/app/(site)/__tests__/home.test.tsx`, `program.test.tsx`, `iletisim.test.tsx`, `src/content/__tests__/content.test.ts`, `src/components/__tests__/Header.test.tsx`, `Footer.test.tsx`: strip assertions that reference the removed CTAs / links / content so the suite stays green. Remove whole test files only where the file tests a deleted unit.
+- **Affected tests** — `src/app/(site)/__tests__/home.test.tsx`, `src/content/__tests__/content.test.ts`, `src/components/__tests__/Header.test.tsx`, `Footer.test.tsx`: strip assertions that reference the removed CTAs / links / news content so the suite stays green. Delete `src/app/(site)/haberler/__tests__/haberler.test.tsx` (tests a deleted route). `program.test.tsx` and `iletisim.test.tsx` have no application assertions and stay unchanged.
 - **`README.md`** — drop the application-feature description.
 - **`vitest.config.ts` / `vitest.setup.ts`** — if they load DB/application env, trim it.
 - **`next.config.ts`** — inspect; edit only if it references removed features.
