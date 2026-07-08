@@ -63,7 +63,7 @@ export default function Iletisim() {
           </div>
         </div>
 
-        {/* Contact form — display-only for the MVP; real form is /basvuru */}
+        {/* Contact form — display-only for the MVP */}
         <div className="flex-[1_1_380px] rounded-[18px] border border-[#E4DDC9] bg-[#FCFBF6] p-[clamp(24px,3vw,36px)] shadow-[0_24px_50px_-34px_rgba(22,38,63,.4)]">
           <div className="flex flex-col gap-[18px]">
             <h3 className="m-0 font-heading text-[22px] font-extrabold text-navy">Bize yazın</h3>
@@ -79,15 +79,6 @@ export default function Iletisim() {
               <span className={FIELD_LABEL}>Mesajınız</span>
               <textarea rows={5} placeholder="Mesajınızı yazınız." className={`${FIELD_INPUT} resize-y font-body leading-relaxed`} disabled />
             </label>
-            <p className="m-0 font-body text-[14px] leading-relaxed text-[#5A6B7E]">
-              Stant tahsis talepleri için lütfen resmî başvuru formunu kullanın.
-            </p>
-            <Link
-              href="/basvuru"
-              className="self-start rounded-full bg-olive px-[34px] py-[15px] font-heading text-base font-extrabold text-[#F7F4EA] no-underline shadow-[0_10px_24px_-14px_rgba(92,122,46,.8)]"
-            >
-              Stant Başvurusu Yap →
-            </Link>
           </div>
         </div>
       </section>

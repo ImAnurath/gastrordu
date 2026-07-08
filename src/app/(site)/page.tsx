@@ -52,12 +52,6 @@ export default function Home() {
             </p>
             <div className="mt-[34px] flex flex-wrap gap-[14px] [animation:heroIn_.7s_ease_both] [animation-delay:.4s]">
               <Link
-                href="/basvuru"
-                className="rounded-full bg-olive px-8 py-4 font-heading text-base font-bold text-[#F7F4EA] no-underline shadow-[0_8px_22px_-10px_rgba(92,122,46,.7)] transition-transform hover:-translate-y-0.5"
-              >
-                Stant Başvurusu Yap
-              </Link>
-              <Link
                 href="/program"
                 className="rounded-full border-[1.5px] border-navy px-8 py-[15px] font-heading text-base font-bold text-navy no-underline transition-transform hover:-translate-y-0.5"
               >
@@ -156,35 +150,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* STAND CTA */}
-      <section className="bg-olive text-cream">
-        <div className="mx-auto max-w-[1440px] px-7 py-[clamp(56px,7vw,90px)]">
-          <div className="mx-auto mb-[44px] max-w-[760px] text-center">
-            <div className="mb-[22px] inline-block rounded-full bg-[#F7F4EA]/[.16] px-6 py-[10px] font-heading text-sm font-bold tracking-[0.1em]">
-              STANT AÇMAK İSTEYENLER İÇİN
-            </div>
-            <h2 className="mb-4 mt-0 font-heading text-[clamp(28px,3.6vw,42px)] font-extrabold leading-[1.1] text-[#F7F4EA]">
-              Festival alanında yerinizi alın
-            </h2>
-            <p className="m-0 font-body text-lg leading-relaxed text-[#E2E8CF]">
-              Kamu kurumları, üreticiler, kooperatifler ve yerel paydaşlar; stant başvuru formunu doldurarak Ordu&apos;nun lezzetlerini birlikte tanıtalım.
-            </p>
-          </div>
-          <div className="flex flex-wrap items-center justify-center gap-5 rounded-[18px] bg-olive-deep px-8 py-7">
-            <div className="flex-[1_1_280px]">
-              <div className="font-heading text-[13px] font-semibold tracking-[0.14em] text-[#C9D6A6]">SON BAŞVURU TARİHİ</div>
-              <div className="mt-1 font-heading text-[30px] font-black text-[#F7F4EA]">17 TEMMUZ 2026</div>
-              <div className="mt-1 font-body text-[15px] text-[#D7E0BC]">Cuma · Mesai bitimine kadar</div>
-            </div>
-            <Link
-              href="/basvuru"
-              className="whitespace-nowrap rounded-full bg-[#F7F4EA] px-9 py-[17px] font-heading text-base font-extrabold text-olive-deep no-underline transition-transform hover:-translate-y-0.5"
-            >
-              Başvuru Formuna Git →
-            </Link>
-          </div>
-        </div>
-      </section>
     </>
   )
 }

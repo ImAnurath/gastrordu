@@ -11,10 +11,15 @@ describe('Home page', () => {
     vi.useRealTimers()
   })
 
-  it('renders the hero title and primary application CTA', () => {
+  it('renders the hero title', () => {
     render(<Home />)
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(/ORDU/i)
-    expect(screen.getByRole('link', { name: /Stant Başvurusu Yap/i })).toHaveAttribute('href', '/basvuru')
+  })
+
+  it('has no application links or CTAs', () => {
+    render(<Home />)
+    expect(screen.queryByRole('link', { name: /Başvuru/i })).not.toBeInTheDocument()
+    expect(screen.queryByRole('link', { name: /Stant Başvurusu Yap/i })).not.toBeInTheDocument()
   })
 
   it('renders the Countdown section with time-unit labels', () => {
