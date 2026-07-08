@@ -11,8 +11,8 @@ export default function Lezzetler() {
       {/* TITLE BAND */}
       <section className="bg-navy text-[#EDE7D6]">
         <div className="mx-auto max-w-[1440px] px-7 py-[clamp(44px,5vw,68px)]">
-          <div className="mb-[14px] font-heading text-[13px] font-semibold tracking-[0.14em] text-olive-light">
-            <Link href="/" className="text-olive-light no-underline">ANASAYFA</Link> · LEZZETLER
+          <div className="mb-[14px] font-heading text-[13px] font-semibold tracking-[0.14em] text-blue">
+            <Link href="/" className="text-blue no-underline">ANASAYFA</Link> · LEZZETLER
           </div>
           <h1 className="mb-[14px] mt-0 font-heading text-[clamp(38px,5.5vw,66px)] font-black leading-none text-cream">
             Tescilli &amp; Yöresel Lezzetler

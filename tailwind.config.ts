@@ -7,16 +7,13 @@ const config: Config = {
       colors: {
         cream: '#F4F0E5',
         navy: '#16263F',
-        olive: '#5C7A2E',
-        'olive-deep': '#435C20',
-        bronze: '#B07A33',
-        'olive-light': '#9DB36A',
+        // Logo duotone: coral = warm/taste/CTA, blue = info/schedule/logistics.
+        // Bright values are for fills; "-deep" values are legible on cream text.
+        coral: '#E9694E',
+        'coral-deep': '#C9553C',
+        blue: '#48B4D6',
+        'blue-deep': '#1E5F7A',
         'text-muted': '#A6AEC0',
-        'green-dark-2': '#4A6322',
-        'green-dark-3': '#3A4F1B',
-        'green-dark-4': '#2E3F16',
-        'green-very-dark': '#23310F',
-        'olive-dark-light': '#CBD9A6',
       },
       fontFamily: {
         heading: ['var(--font-archivo)', 'sans-serif'],

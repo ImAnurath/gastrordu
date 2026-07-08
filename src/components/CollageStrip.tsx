@@ -7,15 +7,15 @@ export function CollageStrip({ images, labels }: { images: string[]; labels: str
   return (
     <section
       className="overflow-hidden py-[60px]"
-      style={{ background: 'radial-gradient(120% 140% at 50% -20%, #4A6322 0%, #3A4F1B 46%, #2E3F16 100%)' }}
+      style={{ background: 'radial-gradient(120% 140% at 50% -20%, #1E3A52 0%, #16263F 46%, #101B2E 100%)' }}
     >
       {/* Title */}
       <div className="mx-auto mb-8 flex max-w-[1440px] items-center gap-4 px-7">
-        <span className="h-px flex-1 bg-[rgba(203,217,166,.35)]" />
-        <h2 className="font-heading text-[clamp(22px,3vw,32px)] font-extrabold text-olive-dark-light">
+        <span className="h-px flex-1 bg-[rgba(244,240,229,.26)]" />
+        <h2 className="font-heading text-[clamp(22px,3vw,32px)] font-extrabold text-coral">
           Festivalde Neler Var?
         </h2>
-        <span className="h-px flex-1 bg-[rgba(203,217,166,.35)]" />
+        <span className="h-px flex-1 bg-[rgba(244,240,229,.26)]" />
       </div>
 
       {/* ROW 1 — image cards scrolling left, 46s */}
@@ -33,7 +33,7 @@ export function CollageStrip({ images, labels }: { images: string[]; labels: str
               {/* Gradient overlay */}
               <span className="absolute inset-0 bg-gradient-to-b from-transparent from-[38%] to-[rgba(22,38,63,.6)]" />
               {/* Numbered badge */}
-              <span className="absolute left-[11px] top-[11px] flex h-[30px] w-[30px] items-center justify-center rounded-[9px] bg-[rgba(22,38,63,.78)] font-heading text-[13px] font-black text-olive-light backdrop-blur-[2px]">
+              <span className="absolute left-[11px] top-[11px] flex h-[30px] w-[30px] items-center justify-center rounded-[9px] bg-[rgba(22,38,63,.78)] font-heading text-[13px] font-black text-blue backdrop-blur-[2px]">
                 {String((i % images.length) + 1).padStart(2, '0')}
               </span>
             </div>
@@ -50,12 +50,12 @@ export function CollageStrip({ images, labels }: { images: string[]; labels: str
           {row2.map((label, i) => (
             <div
               key={i}
-              className="inline-flex flex-none items-center gap-[11px] whitespace-nowrap rounded-full border border-[rgba(157,179,106,.32)] bg-[rgba(244,240,229,.07)] px-5 py-[11px]"
+              className="inline-flex flex-none items-center gap-[11px] whitespace-nowrap rounded-full border border-[rgba(72,180,214,.32)] bg-[rgba(244,240,229,.07)] px-5 py-[11px]"
             >
-              <span className="flex h-[26px] w-[26px] flex-none items-center justify-center rounded-full bg-olive-light font-heading text-[12px] font-black text-green-very-dark">
+              <span className="flex h-[26px] w-[26px] flex-none items-center justify-center rounded-full bg-coral font-heading text-[12px] font-black text-cream">
                 {String((i % labels.length) + 1).padStart(2, '0')}
               </span>
-              <span className="font-heading text-[15px] font-semibold tracking-[.02em] text-[#EDF1DF]">
+              <span className="font-heading text-[15px] font-semibold tracking-[.02em] text-[#EFF2F7]">
                 {label}
               </span>
             </div>
@@ -67,7 +67,7 @@ export function CollageStrip({ images, labels }: { images: string[]; labels: str
       <div className="mt-[30px] flex justify-center">
         <Link
           href="/festival"
-          className="inline-flex items-center gap-[9px] rounded-full bg-olive-light px-7 py-[13px] font-heading text-[15px] font-bold text-green-very-dark no-underline shadow-[0_10px_22px_-12px_rgba(0,0,0,.55)] transition-transform hover:-translate-y-[2px]"
+          className="inline-flex items-center gap-[9px] rounded-full bg-coral px-7 py-[13px] font-heading text-[15px] font-bold text-cream no-underline shadow-[0_10px_22px_-12px_rgba(0,0,0,.55)] transition-transform hover:-translate-y-[2px]"
         >
           Tüm Etkinlikleri Gör →
         </Link>

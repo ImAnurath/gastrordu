@@ -30,11 +30,11 @@ export default function Festival() {
       {/* TITLE BAND */}
       <section className="bg-navy text-[#EDE7D6]">
         <div className="mx-auto max-w-[1440px] px-7 py-[clamp(44px,5vw,68px)]">
-          <div className="mb-[14px] font-heading text-[13px] font-semibold tracking-[0.14em] text-olive-light">
-            <Link href="/" className="text-olive-light no-underline">ANASAYFA</Link> · FESTİVAL
+          <div className="mb-[14px] font-heading text-[13px] font-semibold tracking-[0.14em] text-blue">
+            <Link href="/" className="text-blue no-underline">ANASAYFA</Link> · FESTİVAL
           </div>
           <h1 className="m-0 font-heading text-[clamp(38px,5.5vw,66px)] font-black leading-none text-cream">Festival Hakkında</h1>
-          <p className="mt-5 max-w-[820px] font-script text-[clamp(24px,3.4vw,38px)] leading-tight text-olive-light">
+          <p className="mt-5 max-w-[820px] font-script text-[clamp(24px,3.4vw,38px)] leading-tight text-blue">
             {festival.motto}
           </p>
         </div>
@@ -43,7 +43,7 @@ export default function Festival() {
       {/* ABOUT */}
       <section className="mx-auto flex max-w-[1440px] flex-wrap items-center gap-[54px] px-7 py-[clamp(56px,7vw,90px)]">
         <div className="flex-[1_1_440px]">
-          <div className="mb-4 font-heading text-[13px] font-bold tracking-[0.24em] text-bronze">KARADENİZ&apos;İN BEREKETİ</div>
+          <div className="mb-4 font-heading text-[13px] font-bold tracking-[0.24em] text-blue-deep">KARADENİZ&apos;İN BEREKETİ</div>
           <h2 className="mb-[22px] mt-0 font-heading text-[clamp(28px,3.6vw,42px)] font-extrabold leading-[1.1] text-navy">
             Topraktan sofraya bir kültür buluşması
           </h2>
@@ -55,8 +55,8 @@ export default function Festival() {
             İki gün boyunca atölyeler, söyleşiler, yarışmalar ve konserlerle Ordu&apos;nun gastronomi mirasını ulusal ve uluslararası platformlara taşıyoruz. Bu yalnızca bir lezzet şöleni değil; aynı zamanda bir kültür buluşmasıdır.
           </p>
           <div className="mt-7 flex flex-wrap gap-x-8 gap-y-2 font-heading text-[15px] font-semibold text-[#5A6B7E]">
-            <span><span className="text-olive">📅</span> {festival.dateLabel}</span>
-            <span><span className="text-olive">📍</span> {festival.venue}</span>
+            <span><span className="text-blue-deep">📅</span> {festival.dateLabel}</span>
+            <span><span className="text-blue-deep">📍</span> {festival.venue}</span>
           </div>
         </div>
         <div className="flex-[1_1_360px]">
@@ -74,7 +74,7 @@ export default function Festival() {
         <div className="mx-auto flex max-w-[1440px] flex-wrap justify-center gap-x-[56px] gap-y-6 px-7 py-[clamp(40px,5vw,60px)]">
           {STATS.map((s) => (
             <div key={s.l} className="text-center">
-              <div className="font-heading text-[clamp(40px,5vw,56px)] font-black leading-none text-olive">{s.n}</div>
+              <div className="font-heading text-[clamp(40px,5vw,56px)] font-black leading-none text-blue-deep">{s.n}</div>
               <div className="mt-[9px] font-heading text-[13px] font-semibold uppercase tracking-[0.06em] text-[#5A6B7E]">{s.l}</div>
             </div>
           ))}
@@ -84,7 +84,7 @@ export default function Festival() {
       {/* HIGHLIGHTS */}
       <section className="mx-auto max-w-[1440px] px-7 py-[clamp(56px,7vw,96px)]">
         <div className="mx-auto mb-[50px] max-w-[640px] text-center">
-          <div className="mb-[14px] font-heading text-[13px] font-bold tracking-[0.24em] text-bronze">FESTİVALDE NELER VAR?</div>
+          <div className="mb-[14px] font-heading text-[13px] font-bold tracking-[0.24em] text-blue-deep">FESTİVALDE NELER VAR?</div>
           <h2 className="m-0 font-heading text-[clamp(28px,3.6vw,42px)] font-extrabold leading-[1.1] text-navy">İki gün, sayısız deneyim</h2>
         </div>
         <div className="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-[18px]">
@@ -100,7 +100,7 @@ export default function Festival() {
           ))}
         </div>
         <div className="mt-12 text-center">
-          <Link href="/program" className="inline-block rounded-full bg-olive px-[34px] py-4 font-heading text-base font-bold text-[#F7F4EA] no-underline">
+          <Link href="/program" className="inline-block rounded-full bg-coral px-[34px] py-4 font-heading text-base font-bold text-[#F7F4EA] no-underline">
             İki Günlük Programı Gör →
           </Link>
         </div>

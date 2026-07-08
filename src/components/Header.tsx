@@ -62,7 +62,7 @@ export function Header({ active, showTopBar = true }: { active: ActivePage; show
     <>
     <div ref={barRef} className="fixed top-0 left-0 right-0 z-[80]">
       {showTopBar && (
-        <div className="bg-olive-deep text-[#E8EDD9] font-heading text-[12.5px] tracking-[0.04em]">
+        <div className="bg-navy text-[#E9EEF4] font-heading text-[12.5px] tracking-[0.04em]">
           <div className="mx-auto flex max-w-[1440px] flex-wrap items-center justify-between gap-x-[26px] gap-y-[10px] px-7 py-[9px]">
             <div className="flex flex-wrap items-center gap-x-[22px] gap-y-2">
               <span className="font-semibold">{festival.dateLabel.toLocaleUpperCase('tr-TR')}</span>
@@ -70,9 +70,9 @@ export function Header({ active, showTopBar = true }: { active: ActivePage; show
               <span>TAYFUN GÜRSOY PARKI · ORDU</span>
             </div>
             <div className="flex flex-wrap items-center gap-x-[18px] gap-y-2">
-              <a href="#" className="text-[#E8EDD9] no-underline">Instagram</a>
-              <a href="#" className="text-[#E8EDD9] no-underline">X</a>
-              <a href="#" className="text-[#E8EDD9] no-underline">YouTube</a>
+              <a href="#" className="text-[#E9EEF4] no-underline">Instagram</a>
+              <a href="#" className="text-[#E9EEF4] no-underline">X</a>
+              <a href="#" className="text-[#E9EEF4] no-underline">YouTube</a>
             </div>
           </div>
         </div>
@@ -92,7 +92,7 @@ export function Header({ active, showTopBar = true }: { active: ActivePage; show
             </div>
             <div className="leading-none">
               <div className="font-heading text-[17px] font-black tracking-[0.01em] text-navy">ORDU GASTRONOMİ</div>
-              <div className="mt-[3px] font-heading text-[10.5px] font-semibold tracking-[0.3em] text-olive">F E S T İ V A L İ</div>
+              <div className="mt-[3px] font-heading text-[10.5px] font-semibold tracking-[0.3em] text-coral-deep">F E S T İ V A L İ</div>
             </div>
           </Link>
 
@@ -106,7 +106,7 @@ export function Header({ active, showTopBar = true }: { active: ActivePage; show
                   href={it.href}
                   aria-current={on ? 'page' : undefined}
                   className={`border-b-2 pb-[3px] no-underline ${
-                    on ? 'border-olive font-bold text-olive' : 'border-transparent font-semibold text-[#2E4159]'
+                    on ? 'border-coral font-bold text-coral-deep' : 'border-transparent font-semibold text-[#2E4159]'
                   }`}
                 >
                   {it.label}
@@ -121,7 +121,7 @@ export function Header({ active, showTopBar = true }: { active: ActivePage; show
             onClick={() => setMenuOpen((s) => !s)}
             aria-label="Menü"
             aria-expanded={menuOpen}
-            className="flex h-[46px] w-[46px] flex-col items-center justify-center gap-[5px] rounded-xl border-none bg-olive lg:hidden"
+            className="flex h-[46px] w-[46px] flex-col items-center justify-center gap-[5px] rounded-xl border-none bg-coral lg:hidden"
           >
             <span className="block h-[2px] w-5 bg-[#F7F4EA]" />
             <span className="block h-[2px] w-5 bg-[#F7F4EA]" />
@@ -134,7 +134,7 @@ export function Header({ active, showTopBar = true }: { active: ActivePage; show
           className="absolute left-0 -bottom-px h-[3px]"
           style={{
             width: `${(scrollPct * 100).toFixed(2)}%`,
-            background: 'linear-gradient(90deg,#5C7A2E,#9DB36A)',
+            background: 'linear-gradient(90deg,#E9694E,#48B4D6)',
             transition: 'width .1s linear',
           }}
         />
@@ -152,7 +152,7 @@ export function Header({ active, showTopBar = true }: { active: ActivePage; show
                 aria-current={on ? 'page' : undefined}
                 onClick={() => setMenuOpen(false)}
                 className={`border-b border-[#E4DDC9] py-3 no-underline ${
-                  on ? 'font-bold text-olive' : 'font-semibold text-[#2E4159]'
+                  on ? 'font-bold text-coral-deep' : 'font-semibold text-[#2E4159]'
                 }`}
               >
                 {it.label}

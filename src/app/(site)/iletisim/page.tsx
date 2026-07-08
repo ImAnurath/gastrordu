@@ -2,9 +2,9 @@ import Link from 'next/link'
 import { Header } from '@/components/Header'
 import { festival } from '@/content/festival'
 
-const FIELD_LABEL = 'mb-[7px] block font-heading text-[12.5px] font-semibold uppercase tracking-[0.04em] text-olive'
+const FIELD_LABEL = 'mb-[7px] block font-heading text-[12.5px] font-semibold uppercase tracking-[0.04em] text-blue-deep'
 const FIELD_INPUT =
-  'w-full rounded-lg border-[1.5px] border-[#D8CFB8] bg-[#FFFDF7] px-[15px] py-[13px] text-[16px] text-navy outline-none focus:border-olive'
+  'w-full rounded-lg border-[1.5px] border-[#D8CFB8] bg-[#FFFDF7] px-[15px] py-[13px] text-[16px] text-navy outline-none focus:border-blue'
 
 export default function Iletisim() {
   return (
@@ -14,8 +14,8 @@ export default function Iletisim() {
       {/* TITLE BAND */}
       <section className="bg-navy text-[#EDE7D6]">
         <div className="mx-auto max-w-[1440px] px-7 py-[clamp(44px,5vw,68px)]">
-          <div className="mb-[14px] font-heading text-[13px] font-semibold tracking-[0.14em] text-olive-light">
-            <Link href="/" className="text-olive-light no-underline">ANASAYFA</Link> · İLETİŞİM
+          <div className="mb-[14px] font-heading text-[13px] font-semibold tracking-[0.14em] text-blue">
+            <Link href="/" className="text-blue no-underline">ANASAYFA</Link> · İLETİŞİM
           </div>
           <h1 className="m-0 font-heading text-[clamp(38px,5.5vw,66px)] font-black leading-none text-cream">İletişim</h1>
         </div>
@@ -27,28 +27,28 @@ export default function Iletisim() {
           <h2 className="mb-[26px] mt-0 font-heading text-[clamp(26px,3vw,34px)] font-extrabold leading-tight text-navy">Bize ulaşın</h2>
           <div className="flex flex-col gap-[22px]">
             <div>
-              <div className="mb-[5px] font-heading text-[13px] font-bold uppercase tracking-[0.1em] text-olive">Etkinlik Alanı</div>
+              <div className="mb-[5px] font-heading text-[13px] font-bold uppercase tracking-[0.1em] text-blue-deep">Etkinlik Alanı</div>
               <div className="font-body text-lg text-[#3C4A5C]">{festival.address}</div>
             </div>
             <div>
-              <div className="mb-[5px] font-heading text-[13px] font-bold uppercase tracking-[0.1em] text-olive">Organizasyon</div>
+              <div className="mb-[5px] font-heading text-[13px] font-bold uppercase tracking-[0.1em] text-blue-deep">Organizasyon</div>
               <div className="font-body text-lg text-[#3C4A5C]">Ordu İl Kültür ve Turizm Müdürlüğü</div>
             </div>
             <div>
-              <div className="mb-[5px] font-heading text-[13px] font-bold uppercase tracking-[0.1em] text-olive">E-posta</div>
-              <a href={`mailto:${festival.email}`} className="font-body text-lg text-[#3C4A5C] no-underline hover:text-olive">
+              <div className="mb-[5px] font-heading text-[13px] font-bold uppercase tracking-[0.1em] text-blue-deep">E-posta</div>
+              <a href={`mailto:${festival.email}`} className="font-body text-lg text-[#3C4A5C] no-underline hover:text-blue-deep">
                 {festival.email}
               </a>
             </div>
             <div>
-              <div className="mb-[5px] font-heading text-[13px] font-bold uppercase tracking-[0.1em] text-olive">Telefon</div>
-              <a href={`tel:${festival.phone.replace(/\s/g, '')}`} className="font-body text-lg text-[#3C4A5C] no-underline hover:text-olive">
+              <div className="mb-[5px] font-heading text-[13px] font-bold uppercase tracking-[0.1em] text-blue-deep">Telefon</div>
+              <a href={`tel:${festival.phone.replace(/\s/g, '')}`} className="font-body text-lg text-[#3C4A5C] no-underline hover:text-blue-deep">
                 {festival.phone}
               </a>
             </div>
             <div>
-              <div className="mb-[5px] font-heading text-[13px] font-bold uppercase tracking-[0.1em] text-olive">Web</div>
-              <a href={festival.web} target="_blank" rel="noopener noreferrer" className="font-body text-lg text-[#3C4A5C] no-underline hover:text-olive">
+              <div className="mb-[5px] font-heading text-[13px] font-bold uppercase tracking-[0.1em] text-blue-deep">Web</div>
+              <a href={festival.web} target="_blank" rel="noopener noreferrer" className="font-body text-lg text-[#3C4A5C] no-underline hover:text-blue-deep">
                 {festival.web}
               </a>
             </div>

@@ -38,13 +38,13 @@ export default function Home() {
       <section className="relative bg-cream">
         <div className="mx-auto flex max-w-[1440px] flex-wrap items-center justify-between gap-12 px-7 py-[clamp(40px,7vw,84px)]">
           <div className="min-w-0 max-w-[620px] flex-[1_1_460px]">
-            <div className="mb-[22px] font-heading text-[13px] font-bold tracking-[0.28em] text-bronze [animation:heroIn_.7s_ease_both] [animation-delay:.04s]">
+            <div className="mb-[22px] font-heading text-[13px] font-bold tracking-[0.28em] text-coral-deep [animation:heroIn_.7s_ease_both] [animation-delay:.04s]">
               YEDAŞ SUNAR · ORDU İL KÜLTÜR VE TURİZM MÜDÜRLÜĞÜ
             </div>
             <h1 className="m-0 font-heading text-[clamp(34px,8.5vw,104px)] font-black leading-[.92] tracking-[-.01em] text-navy [animation:heroIn_.7s_ease_both] [animation-delay:.12s]">
               ORDU<br />GASTRONOMİ
             </h1>
-            <div className="mt-[-4px] font-script text-[clamp(34px,8vw,92px)] font-bold leading-none text-olive [animation:heroIn_.7s_ease_both] [animation-delay:.2s]">
+            <div className="mt-[-4px] font-script text-[clamp(34px,8vw,92px)] font-bold leading-none text-coral-deep [animation:heroIn_.7s_ease_both] [animation-delay:.2s]">
               Festivali
             </div>
             <p className="mt-[26px] max-w-[520px] font-body text-[clamp(17px,1.7vw,20px)] leading-relaxed text-[#3C4A5C] [animation:heroIn_.7s_ease_both] [animation-delay:.3s]">
@@ -69,7 +69,7 @@ export default function Home() {
                 imgClassName="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
               />
             )}
-            <div className="absolute -bottom-[26px] -left-[26px] flex h-[158px] w-[158px] flex-col items-center justify-center rounded-full border-[5px] border-cream bg-olive text-center text-[#F7F4EA] shadow-[0_14px_30px_-10px_rgba(67,92,32,.7)]">
+            <div className="absolute -bottom-[26px] -left-[26px] flex h-[158px] w-[158px] flex-col items-center justify-center rounded-full border-[5px] border-cream bg-coral text-center text-[#F7F4EA] shadow-[0_14px_30px_-10px_rgba(201,85,60,.55)]">
               <div className="font-heading text-[34px] font-black leading-none">30–31</div>
               <div className="mt-[5px] font-heading text-[15px] font-bold tracking-[0.14em]">TEMMUZ</div>
               <div className="font-heading text-[13px] font-semibold tracking-[0.1em] opacity-85">2026</div>
@@ -86,7 +86,7 @@ export default function Home() {
       <section className="border-b border-[#DED6C0] bg-[#ECE6D6]">
         <div className="mx-auto flex max-w-[1440px] flex-wrap items-center gap-[54px] px-7 py-[clamp(56px,7vw,96px)]">
           <div className="flex-[1_1_420px] [animation:revealUp_both] [animation-timeline:view()] [animation-range:entry_0%_cover_30%]">
-            <div className="mb-4 font-heading text-[13px] font-bold tracking-[0.24em] text-bronze">FESTİVAL HAKKINDA</div>
+            <div className="mb-4 font-heading text-[13px] font-bold tracking-[0.24em] text-coral-deep">FESTİVAL HAKKINDA</div>
             <h2 className="mb-[22px] mt-0 font-heading text-[clamp(30px,4vw,46px)] font-extrabold leading-[1.05] text-navy">
               Karadeniz&apos;in bereketi, bir araya geliyor
             </h2>
@@ -96,12 +96,12 @@ export default function Home() {
             <div className="mb-[30px] flex flex-wrap gap-x-10 gap-y-[14px]">
               {STATS.map((s) => (
                 <div key={s.l}>
-                  <div className="font-heading text-[40px] font-black leading-none text-olive">{s.n}</div>
+                  <div className="font-heading text-[40px] font-black leading-none text-coral-deep">{s.n}</div>
                   <div className="mt-[7px] font-heading text-[13px] font-semibold uppercase tracking-[0.06em] text-[#5A6B7E]">{s.l}</div>
                 </div>
               ))}
             </div>
-            <Link href="/festival" className="border-b-2 border-olive pb-[3px] font-heading text-[15px] font-bold text-olive no-underline">
+            <Link href="/festival" className="border-b-2 border-coral pb-[3px] font-heading text-[15px] font-bold text-coral-deep no-underline">
               Festivali Keşfet →
             </Link>
           </div>
@@ -117,7 +117,7 @@ export default function Home() {
       <section className="border-y border-[#DED6C0] bg-[#ECE6D6]">
         <div className="mx-auto max-w-[1440px] px-7 py-[clamp(56px,7vw,96px)]">
           <div className="mx-auto mb-[50px] max-w-[680px] text-center [animation:revealUp_both] [animation-timeline:view()] [animation-range:entry_0%_cover_24%]">
-            <div className="mb-[14px] font-heading text-[13px] font-bold tracking-[0.24em] text-bronze">TESCİLLİ &amp; YÖRESEL LEZZETLER</div>
+            <div className="mb-[14px] font-heading text-[13px] font-bold tracking-[0.24em] text-coral-deep">TESCİLLİ &amp; YÖRESEL LEZZETLER</div>
             <h2 className="mb-4 mt-0 font-heading text-[clamp(30px,4vw,46px)] font-extrabold leading-[1.05] text-navy">Ordu&apos;nun sofrası</h2>
             <p className="m-0 font-body text-lg leading-relaxed text-[#5A6B7E]">
               Fındıktan hamsiye, mıhlamadan karalahanaya; festivalde tadabileceğiniz lezzetlerden bir seçki.
@@ -131,7 +131,7 @@ export default function Home() {
               >
                 <div className="relative aspect-[4/3] w-full">
                   <img src={f.image} alt={f.name} loading="lazy" className="h-full w-full object-cover" />
-                  <span className="absolute left-3 top-3 rounded-full bg-olive px-[11px] py-[6px] font-heading text-[11px] font-bold tracking-[0.06em] text-[#F7F4EA]">
+                  <span className="absolute left-3 top-3 rounded-full bg-coral px-[11px] py-[6px] font-heading text-[11px] font-bold tracking-[0.06em] text-[#F7F4EA]">
                     {f.tag}
                   </span>
                 </div>
@@ -143,7 +143,7 @@ export default function Home() {
             ))}
           </div>
           <div className="mt-[42px] text-center">
-            <Link href="/lezzetler" className="border-b-2 border-olive pb-[3px] font-heading text-[15px] font-bold text-olive no-underline">
+            <Link href="/lezzetler" className="border-b-2 border-coral pb-[3px] font-heading text-[15px] font-bold text-coral-deep no-underline">
               Tüm Lezzetler →
             </Link>
           </div>

@@ -24,7 +24,7 @@ export function Gallery({ items }: { items: GalleryItem[] }) {
 
   const chip = (active: boolean) =>
     `rounded-full px-[18px] py-[9px] font-heading text-[13px] font-bold tracking-[0.04em] transition ${
-      active ? 'bg-olive text-[#F7F4EA]' : 'border border-[#DED6C0] bg-[#FCFBF6] text-navy hover:border-olive'
+      active ? 'bg-coral text-[#F7F4EA]' : 'border border-[#DED6C0] bg-[#FCFBF6] text-navy hover:border-coral'
     }`
 
   return (
@@ -50,7 +50,7 @@ export function Gallery({ items }: { items: GalleryItem[] }) {
           >
             <div className="relative aspect-[4/3] w-full">
               <img src={item.image} alt={item.caption} loading="lazy" className="h-full w-full object-cover" />
-              <span className="absolute left-3 top-3 rounded-full bg-olive px-[11px] py-[6px] font-heading text-[11px] font-bold tracking-[0.06em] text-[#F7F4EA]">
+              <span className="absolute left-3 top-3 rounded-full bg-coral px-[11px] py-[6px] font-heading text-[11px] font-bold tracking-[0.06em] text-[#F7F4EA]">
                 {item.tag ?? CATEGORY_LABELS[item.category]}
               </span>
             </div>

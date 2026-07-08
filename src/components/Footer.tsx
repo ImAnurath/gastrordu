@@ -16,15 +16,15 @@ export function Footer() {
           {/* Brand + description + socials */}
           <div className="max-w-[420px] flex-[1_1_320px]">
             <div className="font-heading text-[22px] font-black text-cream">
-              ORDU GASTRONOMİ <span className="text-olive-light">FESTİVALİ</span>
+              ORDU GASTRONOMİ <span className="text-blue">FESTİVALİ</span>
             </div>
             <p className="mt-4 font-body text-[15.5px] leading-relaxed text-[#9AA6BB]">
               Ordu&apos;nun bereketli doğasını köklü kültürel mirasıyla buluşturan eşsiz lezzetleri tanıtmak için {festival.dateLabel}&apos;da {festival.venue}&apos;nda buluşuyoruz.
             </p>
             <div className="mt-5 flex gap-[14px] font-heading text-sm font-semibold">
-              <a href="#" className="text-olive-light no-underline">Instagram</a>
-              <a href="#" className="text-olive-light no-underline">X</a>
-              <a href="#" className="text-olive-light no-underline">YouTube</a>
+              <a href="#" className="text-blue no-underline">Instagram</a>
+              <a href="#" className="text-blue no-underline">X</a>
+              <a href="#" className="text-blue no-underline">YouTube</a>
             </div>
           </div>
 
@@ -35,7 +35,7 @@ export function Footer() {
             </div>
             <div className="flex flex-col gap-[11px] font-body text-base">
               {QUICK_LINKS.map((l) => (
-                <Link key={l.href} href={l.href} className="text-[#C3CCDB] no-underline hover:text-olive-light">
+                <Link key={l.href} href={l.href} className="text-[#C3CCDB] no-underline hover:text-blue">
                   {l.label}
                 </Link>
               ))}
@@ -49,10 +49,10 @@ export function Footer() {
             </div>
             <address className="flex flex-col gap-2 font-body text-[15px] not-italic text-[#9AA6BB]">
               <span>{festival.address}</span>
-              <a href={`tel:${festival.phone.replace(/\s/g, '')}`} className="text-[#C3CCDB] no-underline hover:text-olive-light">
+              <a href={`tel:${festival.phone.replace(/\s/g, '')}`} className="text-[#C3CCDB] no-underline hover:text-blue">
                 {festival.phone}
               </a>
-              <a href={`mailto:${festival.email}`} className="text-[#C3CCDB] no-underline hover:text-olive-light">
+              <a href={`mailto:${festival.email}`} className="text-[#C3CCDB] no-underline hover:text-blue">
                 {festival.email}
               </a>
             </address>

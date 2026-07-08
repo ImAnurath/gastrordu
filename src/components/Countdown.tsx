@@ -51,7 +51,7 @@ export function Countdown() {
     <section className="bg-navy">
       <div className="mx-auto flex max-w-[1440px] flex-wrap items-center justify-between gap-8 px-7 py-[42px]">
         <div>
-          <div className="font-heading text-[13px] font-bold uppercase tracking-[0.20em] text-olive-light">
+          <div className="font-heading text-[13px] font-bold uppercase tracking-[0.20em] text-blue">
             FESTİVALE KALAN SÜRE
           </div>
           <div className="mt-2 font-heading text-[clamp(20px,2.2vw,28px)] font-extrabold text-cream">
@@ -62,10 +62,10 @@ export function Countdown() {
           {items.map((it) => (
             <div
               key={it.l}
-              className="min-w-[clamp(62px,6.5vw,88px)] rounded-[14px] border border-[rgba(157,179,106,.28)] bg-[rgba(244,240,229,.06)] px-[clamp(12px,1.5vw,22px)] py-[clamp(12px,1.4vw,18px)] text-center"
+              className="min-w-[clamp(62px,6.5vw,88px)] rounded-[14px] border border-[rgba(72,180,214,.30)] bg-[rgba(244,240,229,.06)] px-[clamp(12px,1.5vw,22px)] py-[clamp(12px,1.4vw,18px)] text-center"
             >
               <div
-                className="font-heading font-black text-olive-light"
+                className="font-heading font-black text-blue"
                 style={{ fontSize: 'clamp(28px,3.4vw,44px)', lineHeight: 1, fontVariantNumeric: 'tabular-nums' }}
                 suppressHydrationWarning
               >
