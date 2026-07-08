@@ -87,9 +87,13 @@ export function Header({ active, showTopBar = true }: { active: ActivePage; show
       >
         <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-5 px-7 py-[13px]">
           <Link href="/" className="flex items-center gap-[13px] no-underline">
-            <div className="flex h-11 w-11 flex-none items-center justify-center rounded-full border-2 border-dashed border-[#B5AA8A] font-mono text-[9px] tracking-[0.05em] text-[#8A8062]">
-              LOGO
-            </div>
+            <img
+              src="/logo.png"
+              alt="YEDAŞ Ordu Gastronomi Festivali logosu"
+              width={44}
+              height={44}
+              className="h-11 w-11 flex-none"
+            />
             <div className="leading-none">
               <div className="font-heading text-[17px] font-black tracking-[0.01em] text-navy">ORDU GASTRONOMİ</div>
               <div className="mt-[3px] font-heading text-[10.5px] font-semibold tracking-[0.3em] text-coral-deep">F E S T İ V A L İ</div>
