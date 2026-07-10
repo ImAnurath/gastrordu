@@ -22,9 +22,7 @@ export function Footer() {
               Ordu&apos;nun bereketli doğasını köklü kültürel mirasıyla buluşturan eşsiz lezzetleri tanıtmak için {festival.dateLabel}&apos;da {festival.venue}&apos;nda buluşuyoruz.
             </p>
             <div className="mt-5 flex gap-[14px] font-heading text-sm font-semibold">
-              <a href="#" className="text-blue no-underline">Instagram</a>
-              <a href="#" className="text-blue no-underline">X</a>
-              <a href="#" className="text-blue no-underline">YouTube</a>
+              <a href={festival.instagram} target="_blank" rel="noopener noreferrer" className="text-blue no-underline">Instagram</a>
             </div>
           </div>
 

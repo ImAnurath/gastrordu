@@ -12,4 +12,5 @@ export const festival: FestivalInfo = {
   phone: '0 452 280 17 00',
   email: 'iktm52@ktb.gov.tr',
   web: 'https://ordu.ktb.gov.tr/',
+  instagram: 'https://www.instagram.com/gastroordu_',
 }

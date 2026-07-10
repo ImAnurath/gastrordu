@@ -70,9 +70,7 @@ export function Header({ active, showTopBar = true }: { active: ActivePage; show
               <span>TAYFUN GÜRSOY PARKI · ORDU</span>
             </div>
             <div className="flex flex-wrap items-center gap-x-[18px] gap-y-2">
-              <a href="#" className="text-[#E9EEF4] no-underline">Instagram</a>
-              <a href="#" className="text-[#E9EEF4] no-underline">X</a>
-              <a href="#" className="text-[#E9EEF4] no-underline">YouTube</a>
+              <a href={festival.instagram} target="_blank" rel="noopener noreferrer" className="text-[#E9EEF4] no-underline">Instagram</a>
             </div>
           </div>
         </div>
