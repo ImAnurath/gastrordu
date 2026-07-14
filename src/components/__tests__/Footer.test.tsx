@@ -8,7 +8,7 @@ describe('Footer', () => {
     expect(screen.getByText(/iktm52@ktb.gov.tr/)).toBeInTheDocument()
   })
 
-  it('shows the four quick links and no application link', () => {
+  it('shows the quick links and no application link', () => {
     render(<Footer />)
     expect(screen.getByRole('link', { name: 'Anasayfa' })).toHaveAttribute('href', '/')
     expect(screen.getByRole('link', { name: 'Festival Hakkında' })).toHaveAttribute('href', '/festival')

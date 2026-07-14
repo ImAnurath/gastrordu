@@ -69,6 +69,12 @@ export default function Yarisma() {
                 {yarisma.application.phone}
               </a>
             </div>
+            <div>
+              <div className="mb-[5px] font-heading text-[13px] font-bold uppercase tracking-[0.1em] text-blue-deep">Resmî Kaynak</div>
+              <a href={yarisma.application.officialSource} target="_blank" rel="noopener noreferrer" className="font-body text-lg text-[#3C4A5C] no-underline hover:text-blue-deep">
+                ordu.ktb.gov.tr
+              </a>
+            </div>
             <p className="m-0 font-body text-[15.5px] leading-relaxed text-[#5A6B7E]">{yarisma.application.note}</p>
           </div>
           <div className="mt-7 flex flex-wrap gap-[14px]">

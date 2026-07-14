@@ -3,8 +3,9 @@ import { Header } from '@/components/Header'
 import { Gallery } from '@/components/Gallery'
 import { gallery } from '@/content/gallery'
 import { giProducts, GI_GROUP_ORDER } from '@/content/gi-products'
+import type { GiProduct } from '@/content/types'
 
-const BADGE: Record<string, string> = {
+const BADGE: Record<GiProduct['type'], string> = {
   'Menşe Adı': 'bg-navy text-cream',
   'Mahreç İşareti': 'bg-coral text-[#F7F4EA]',
 }

@@ -18,5 +18,7 @@ describe('Yarisma page', () => {
     expect(screen.getByText(/13 – 24 Temmuz 2026/)).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /coğrafi işaretli ürünler/i }))
       .toHaveAttribute('href', '/lezzetler')
+    expect(screen.getByRole('link', { name: 'ordu.ktb.gov.tr' }))
+      .toHaveAttribute('href', 'https://ordu.ktb.gov.tr/')
   })
 })

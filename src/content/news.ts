@@ -18,7 +18,7 @@ export const news: NewsItem[] = [
         type: 'list',
         items: [
           'Kortej yürüyüşü toplanma: 30 Temmuz 2026, saat 11.00 — Fidangör Sırrı Paşa Caddesi (19 Eylül Ortaokulu Önü)',
-          'Yürüyüş güzergâhı: Fidangör Sırrıpaşa Caddesi\'nden Köprübaşı Ceren Özdemir Meydanı\'na',
+          'Yürüyüş güzergâhı: Fidangör Sırrı Paşa Caddesi\'nden Köprübaşı Ceren Özdemir Meydanı\'na',
           'Festival alanı açılışı: 30 Temmuz 2026, saat 13.00 — Tayfun Gürsoy Parkı Etkinlik Alanı',
         ],
       },

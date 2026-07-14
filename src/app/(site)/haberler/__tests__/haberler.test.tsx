@@ -33,6 +33,6 @@ describe('Haber article page', () => {
     expect(screen.getByRole('link', { name: /Festival Programı/ })).toHaveAttribute('href', '/program')
   })
   it('rejects unknown slugs via notFound()', async () => {
-    await expect(HaberDetay({ params: Promise.resolve({ slug: 'yok-boyle-haber' }) })).rejects.toThrow()
+    await expect(HaberDetay({ params: Promise.resolve({ slug: 'yok-boyle-haber' }) })).rejects.toThrow(/NEXT_HTTP_ERROR_FALLBACK|NEXT_NOT_FOUND/)
   })
 })
