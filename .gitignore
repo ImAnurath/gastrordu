@@ -27,3 +27,4 @@ tsconfig.tsbuildinfo
 # Transient session prompts & handoff notes (working docs, not project docs)
 Docs/plan*-session-prompt.md
 Docs/post-plan*-handoff-checklist.md
+.superpowers/
