@@ -3,6 +3,7 @@ import { Header } from '@/components/Header'
 import { festival } from '@/content/festival'
 import { gallery } from '@/content/gallery'
 import { flavors } from '@/content/flavors'
+import { announcements } from '@/content/news'
 import { Countdown } from '@/components/Countdown'
 import { CollageStrip } from '@/components/CollageStrip'
 import { ImageLightbox } from '@/components/ImageLightbox'
@@ -75,6 +76,24 @@ export default function Home() {
               <div className="font-heading text-[13px] font-semibold tracking-[0.1em] opacity-85">2026</div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* DUYURULAR */}
+      <section className="border-y border-[#DED6C0] bg-navy">
+        <div className="mx-auto flex max-w-[1440px] flex-wrap gap-x-12 gap-y-4 px-7 py-[22px]">
+          <div className="flex items-center font-heading text-[13px] font-bold tracking-[0.24em] text-blue">DUYURULAR</div>
+          {announcements.map((a) => (
+            <div key={a.href} className="flex flex-wrap items-center gap-x-4 gap-y-1">
+              <span className="font-heading text-[15px] font-bold text-cream">{a.title}</span>
+              <span className="rounded-full bg-coral px-[11px] py-[5px] font-heading text-[12px] font-bold tracking-[0.04em] text-[#F7F4EA]">
+                {a.deadlineLabel}
+              </span>
+              <Link href={a.href} className="border-b border-blue pb-[2px] font-heading text-[13.5px] font-bold text-blue no-underline">
+                {a.linkLabel} →
+              </Link>
+            </div>
+          ))}
         </div>
       </section>
 

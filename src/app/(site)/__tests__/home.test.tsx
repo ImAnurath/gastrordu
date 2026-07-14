@@ -48,4 +48,12 @@ describe('Home page', () => {
     render(<Home />)
     expect(screen.queryByText(/İki gün, sayısız deneyim/i)).not.toBeInTheDocument()
   })
+
+  it('shows the announcements band with deadline labels', () => {
+    render(<Home />)
+    expect(screen.getByText(/Son gün 24 Temmuz/)).toBeInTheDocument()
+    expect(screen.getByText(/Son gün 17 Temmuz/)).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /Yarışma Detayları/ })).toHaveAttribute('href', '/yarisma')
+    expect(screen.getByRole('link', { name: /Duyuruyu Oku/ })).toHaveAttribute('href', '/haberler/stant-basvurulari-basladi')
+  })
 })
