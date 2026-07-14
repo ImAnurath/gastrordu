@@ -5,7 +5,9 @@ const QUICK_LINKS = [
   { label: 'Anasayfa', href: '/' },
   { label: 'Festival Hakkında', href: '/festival' },
   { label: 'Program', href: '/program' },
+  { label: 'Yarışma', href: '/yarisma' },
   { label: 'Lezzetler', href: '/lezzetler' },
+  { label: 'Haberler', href: '/haberler' },
 ] as const
 
 export function Footer() {

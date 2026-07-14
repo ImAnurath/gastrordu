@@ -5,13 +5,15 @@ import Link from 'next/link'
 import { festival } from '@/content/festival'
 
 export type ActivePage =
-  | 'home' | 'festival' | 'program' | 'lezzetler' | 'iletisim'
+  | 'home' | 'festival' | 'program' | 'yarisma' | 'lezzetler' | 'haberler' | 'iletisim'
 
 const NAV = [
   { key: 'home', label: 'Anasayfa', href: '/' },
   { key: 'festival', label: 'Festival', href: '/festival' },
   { key: 'program', label: 'Program', href: '/program' },
+  { key: 'yarisma', label: 'Yarışma', href: '/yarisma' },
   { key: 'lezzetler', label: 'Lezzetler', href: '/lezzetler' },
+  { key: 'haberler', label: 'Haberler', href: '/haberler' },
   { key: 'iletisim', label: 'İletişim', href: '/iletisim' },
 ] as const
 

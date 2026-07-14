@@ -5,10 +5,10 @@ import { Header } from '../Header'
 describe('Header', () => {
   it('renders all nav links and no application CTA', () => {
     render(<Header active="home" />)
-    for (const label of ['Anasayfa','Festival','Program','Lezzetler','İletişim']) {
-      expect(screen.getByRole('link', { name: label })).toBeInTheDocument()
+    for (const label of ['Anasayfa','Festival','Program','Yarışma','Lezzetler','Haberler','İletişim']) {
+      // desktop + mobile menus can both render a link; assert at least one
+      expect(screen.getAllByRole('link', { name: label }).length).toBeGreaterThan(0)
     }
-    expect(screen.queryByRole('link', { name: 'Haberler' })).not.toBeInTheDocument()
     expect(screen.queryByRole('link', { name: /Başvuru Yap/i })).not.toBeInTheDocument()
   })
   it('marks the active item', () => {

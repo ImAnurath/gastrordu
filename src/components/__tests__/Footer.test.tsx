@@ -16,4 +16,10 @@ describe('Footer', () => {
     expect(screen.getByRole('link', { name: 'Lezzetler' })).toHaveAttribute('href', '/lezzetler')
     expect(screen.queryByRole('link', { name: 'Stant Başvurusu' })).not.toBeInTheDocument()
   })
+
+  it('quick links include Yarışma and Haberler', () => {
+    render(<Footer />)
+    expect(screen.getByRole('link', { name: 'Yarışma' })).toHaveAttribute('href', '/yarisma')
+    expect(screen.getByRole('link', { name: 'Haberler' })).toHaveAttribute('href', '/haberler')
+  })
 })
