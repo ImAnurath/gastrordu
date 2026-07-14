@@ -52,4 +52,12 @@ describe('content modules', () => {
     expect(announcements).toHaveLength(2)
     for (const a of announcements) expect(a.href.startsWith('/')).toBe(true)
   })
+  it('program reflects confirmed schedule facts', () => {
+    const titles = program.map(p => `${p.time} ${p.title}`)
+    expect(titles).toContain('11:00 Kortej Yürüyüşü')
+    expect(titles).toContain('13:00 Festival Alanı Açılışı')
+    expect(titles).toContain('11:00 Ordu Yemekleri Yarışması')
+    expect(titles).not.toContain('17:00 Yöresel Lezzet Yarışması Finali')
+    expect(titles).not.toContain('10:00 Açılış Töreni & Kortej Yürüyüşü')
+  })
 })
