@@ -3,6 +3,7 @@
 **Date:** 2026-07-14
 **Status:** Approved by user (structure, Lezzetler layout, homepage band, program update, GI scope all confirmed)
 **Source material:** `Docs/New Info/` — competition poster (JPEG), `YEMEK YARISMASI SARTNAMESİ.docx`, `YARISMACI BASVURU FORMU.docx`, `Ordu Tüm Coğrafi İşaretli Ürünler 06.11.2025.xls`; plus existing `Docs/stant_haberi.md` and `Docs/Ordu_Gastronomi_Festivali_Stant_Basvuru_Formu (son).pdf`.
+**Amended 2026-07-14 (evening):** second batch in `Docs/New Info/New Images/` — hi-res yarışma poster, general festival key visual (landscape / 4:5 portrait / 9:16 story), and the Vali's opening invitation card. Amendments approved by user; changes marked **[Amendment]** below.
 
 ## Context
 
@@ -11,7 +12,7 @@ The commissioner sent new official material: a cooking competition (Ordu Yemekle
 ## Scope
 
 1. New page `/yarisma` with competition details and downloadable PDFs.
-2. Static `/haberler` list page + `/haberler/[slug]` article pages with two launch articles.
+2. Static `/haberler` list page + `/haberler/[slug]` article pages with three launch articles.
 3. Lezzetler page rebuilt around the official 26-item GI product list.
 4. Homepage highlight band for the two time-critical announcements.
 5. Program page: one confirmed schedule correction.
@@ -30,7 +31,7 @@ Content module: `src/content/yarisma.ts` (typed in `src/content/types.ts`, same 
 Page sections, in order:
 
 - **Hero:** "Ordu Yemekleri Yarışması", motto "Lezzetini Konuştur, Kültürünü Yaşat", key facts row: 31 Temmuz 2026 Cuma, 11:00, Tayfun Gürsoy Parkı Etkinlik Alanı. Sonuçlar aynı gün açıklanır.
-- **Poster:** competition poster image, clickable into the existing `ImageLightbox` (same pattern as festival poster). Source JPEG optimized and copied to `public/` alongside existing images.
+- **Poster:** competition poster image, clickable into the existing `ImageLightbox` (same pattern as festival poster). **[Amendment]** Use the hi-res version from `New Images/WhatsApp Image 2026-07-14 at 13.44.48 (1).jpeg` (1448×2048, includes MA Major logo), optimized and copied to `public/images/` per existing naming convention (e.g. `poster-yemek-yarismasi-portrait.jpeg`).
 - **Kategoriler (3):**
   1. Ordu'ya Özgü Ana Yemek (Et, Tavuk ve Balık Yemekleri)
   2. Ordu Ot Yemekleri
@@ -48,6 +49,7 @@ Page sections, in order:
 - **Launch articles:**
   1. **Yemek yarışması duyurusu** (`ordu-yemekleri-yarismasi`, dated 2026-07-13): announcement summary; CTA link to `/yarisma`; attachment: başvuru formu PDF.
   2. **Stant başvurusu** (`stant-basvurulari-basladi`, dated per existing draft): adapted from `Docs/stant_haberi.md` (who can apply, deadline **17 Temmuz 2026 mesai bitimi**, delivery to Müdürlük, contact block); attachment: `Ordu_Gastronomi_Festivali_Stant_Basvuru_Formu (son).pdf` copied to `public/docs/`. Emojis from the draft toned down to match site typography.
+  3. **[Amendment] Açılış programı belli oldu** (`acilis-programi-belli-oldu`, dated 2026-07-14): the Vali's invitation. Body: Vali Muammer Erol's invitation message ("Ordu'nun eşsiz lezzetlerinin tanıtılacağı … açılış programına katılımlarınızı dilerim."), kortej details — toplanma 11:00, Fidangör Sırrı Paşa Caddesi (19 Eylül Ortaokulu Önü), yürüyüş to Köprübaşı Ceren Özdemir Meydanı — and festival alanı açılışı 30 Temmuz 13:00, Tayfun Gürsoy Parkı Etkinlik Alanı. Includes the invitation card image (optimized copy in `public/images/`); CTA link to `/program`. The `NewsItem` shape therefore also supports an optional `image`.
 
 ## 3. Lezzetler rebuild — coğrafi işaretli ürünler
 
@@ -98,17 +100,30 @@ A "Duyurular" strip under the hero with two announcement cards:
 
 Deadline labels come from the content modules, not hardcoded in the component. Band styling follows the coral+navy palette; visually distinct from the hero but not alarm-colored.
 
-## 5. Program correction
+## 5. Program corrections
 
-In `src/content/program.ts`, on 31 Temmuz: replace `{ time: '17:00', title: 'Yöresel Lezzet Yarışması Finali', description: 'Ana Sahne' }` with `{ time: '11:00', title: 'Ordu Yemekleri Yarışması', description: 'Etkinlik Alanı' }` (position re-sorted by time). All other items keep the existing provisional-times TODO. Ödül Töreni entry stays (şartname: results announced 31 Temmuz).
+In `src/content/program.ts`, confirmed-by-document changes only:
+
+- **31 Temmuz:** replace `{ time: '17:00', title: 'Yöresel Lezzet Yarışması Finali', description: 'Ana Sahne' }` with `{ time: '11:00', title: 'Ordu Yemekleri Yarışması', description: 'Etkinlik Alanı' }` (source: şartname). Ödül Töreni entry stays (results announced 31 Temmuz).
+- **[Amendment] 30 Temmuz** (source: Vali's invitation card): replace `{ time: '10:00', title: 'Açılış Töreni & Kortej Yürüyüşü', description: 'Ana Giriş' }` with two entries:
+  - `{ time: '11:00', title: 'Kortej Yürüyüşü', description: 'Fidangör Sırrı Paşa Caddesi → Köprübaşı Ceren Özdemir Meydanı' }`
+  - `{ time: '13:00', title: 'Festival Alanı Açılışı', description: 'Tayfun Gürsoy Parkı Etkinlik Alanı' }`
+
+All items re-sorted by time within their day; every other item keeps the existing provisional-times TODO.
 
 ## 6. Assets
 
 - `public/docs/yarisma-sartnamesi.pdf` — converted from `YEMEK YARISMASI SARTNAMESİ.docx`.
 - `public/docs/yarisma-basvuru-formu.pdf` — converted from `YARISMACI BASVURU FORMU.docx`.
 - `public/docs/stant-basvuru-formu.pdf` — copied from `Docs/Ordu_Gastronomi_Festivali_Stant_Basvuru_Formu (son).pdf`.
-- Competition poster: optimized web copy (max ~1600px, JPEG/WebP per existing image pipeline convention in `public/`/`Images/`) + used by /yarisma and the yarışma news article.
+- Competition poster: optimized web copy (max ~1600px, JPEG/WebP per existing image pipeline convention in `public/`/`Images/`) + used by /yarisma and the yarışma news article. **[Amendment]** Source is the hi-res `New Images` version.
 - DOCX→PDF conversion via locally installed MS Word COM automation (PowerShell) or LibreOffice `soffice --convert-to pdf`; whichever is available. Conversion output is committed; conversion is a one-time build step, not part of CI.
+- **[Amendment] General festival key visual** (`New Images`, three formats):
+  - 4:5 portrait (`13.44.48 (3).jpeg`) → replaces `poster-ordulular-boztepe.jpeg` as the /festival page poster (`ImageLightbox`, same slot). The old Boztepe poster stays in the gallery's scenic entry — only the festival page slot changes.
+  - Landscape banner (`13.44.47.jpeg`) → added to `gallery.ts` poster category (caption: "YEDAŞ Ordu Gastronomi Festivali tanıtım afişi").
+  - 9:16 story version: not used on the site (social-media format); no action.
+  - Homepage hero keeps the current scenic photo (decided: posters carry text/logos and would clutter the hero).
+- **[Amendment] Vali invitation card** (`13.44.48.jpeg`) → optimized copy in `public/images/` for the `acilis-programi-belli-oldu` news article.
 
 ## 7. Chrome, tests, metadata
 
