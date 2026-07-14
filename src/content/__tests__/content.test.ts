@@ -3,6 +3,8 @@ import { festival } from '../festival'
 import { sponsors } from '../sponsors'
 import { program } from '../program'
 import { giProducts, GI_GROUP_ORDER } from '../gi-products'
+import { yarisma } from '../yarisma'
+import { news, announcements } from '../news'
 
 describe('content modules', () => {
   it('festival has date + venue', () => {
@@ -30,5 +32,24 @@ describe('content modules', () => {
     // spot checks
     expect(giProducts.find(p => p.name === 'Ordu Tostu')?.tescilNo).toBe(761)
     expect(giProducts.find(p => p.name === 'Dastar')?.status).toBe('Başvuru')
+  })
+  it('yarisma module has categories, prizes, downloads', () => {
+    expect(yarisma.categories).toHaveLength(3)
+    expect(yarisma.prizes).toHaveLength(3)
+    expect(yarisma.downloads.map(d => d.href)).toEqual([
+      '/docs/yarisma-sartnamesi.pdf',
+      '/docs/yarisma-basvuru-formu.pdf',
+    ])
+    expect(yarisma.application.deadlineLabel).toContain('24 Temmuz')
+  })
+  it('news has 3 launch articles with unique slugs', () => {
+    expect(news).toHaveLength(3)
+    expect(new Set(news.map(n => n.slug)).size).toBe(3)
+    for (const n of news) {
+      expect(n.date).toMatch(/^2026-07-\d{2}$/)
+      expect(n.body.length).toBeGreaterThan(0)
+    }
+    expect(announcements).toHaveLength(2)
+    for (const a of announcements) expect(a.href.startsWith('/')).toBe(true)
   })
 })
