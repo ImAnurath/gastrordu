@@ -56,7 +56,7 @@ Page sections, in order:
 - Content module: `src/content/gi-products.ts` exporting the full official list (26 items) with `{ name, tescilNo?, type: 'Menşe Adı' | 'Mahreç İşareti', status: 'Tescilli' | 'Başvuru', group }`.
 - Groups (display order): **Yöresel Yemekler**, **Hamur İşleri & Tatlılar**, **Ürünler & Turşular**, **El Sanatları**.
 - Layout: category-grouped card grid. Card = name, "Tescil No: N" (omit for pending), badge: Menşe Adı (navy) / Mahreç İşareti (coral); pending items get "Başvuru aşamasında" badge instead of tescil no.
-- The 4 existing generic flavor cards are removed; their subjects are covered by the official list (Fındık → Ordu/Gürgentepe Çakıldak Fındığı, Pide → Ordu Pidesi/Yağlısı, Mıhlama → Ordu Sakarca Mıhlaması). Hamsi Tava is not a GI product and drops out. Page hero/intro text updated to frame the page as Ordu's official GI registry plus festival flavors.
+- Correction (planning): the "4 generic flavor cards" live on the homepage teaser (`flavors.ts`), not on the Lezzetler page — Lezzetler renders the photo gallery. `flavors.ts` and the homepage teaser stay untouched; the GI grid is added as a new section on Lezzetler above the gallery. Page hero/intro text updated to frame the page as Ordu's official GI registry plus festival flavors.
 - Cross-link note near the top: dishes in the yarışma must use at least one of these products (link to /yarisma).
 
 ### Official data (from the 06.11.2025 registry XLS — single source of truth)
