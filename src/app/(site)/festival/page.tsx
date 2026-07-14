@@ -61,9 +61,9 @@ export default function Festival() {
         </div>
         <div className="flex-[1_1_360px]">
           <ImageLightbox
-            src="/images/poster-ordulular-boztepe.jpeg"
-            alt="Ordu — Boztepe ve sahil"
-            triggerClassName="group relative block aspect-[1000/606] w-full cursor-zoom-in overflow-hidden rounded-[18px]"
+            src="/images/poster-festival-2026.jpeg"
+            alt="YEDAŞ Ordu Gastronomi Festivali 2026 afişi"
+            triggerClassName="group relative block aspect-[4/5] w-full max-w-[460px] cursor-zoom-in overflow-hidden rounded-[18px]"
             imgClassName="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
           />
         </div>

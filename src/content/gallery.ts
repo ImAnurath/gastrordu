@@ -32,4 +32,5 @@ export const gallery: GalleryItem[] = [
   { id: 'poster-main-square', image: '/images/poster-festival-main-square.jpeg', caption: 'Festival tanıtım afişi', category: 'poster' },
   { id: 'poster-ordu-lezzetleri-wide', image: '/images/poster-ordu-lezzetleri-wide.jpeg', caption: 'Ordu lezzetleri', category: 'poster' },
   { id: 'poster-imza-menuleri', image: '/images/poster-imza-menuleri-portrait.jpeg', caption: 'Ordu imza menüleri', category: 'poster' },
+  { id: 'poster-festival-2026-wide', image: '/images/poster-festival-2026-wide.jpeg', caption: 'YEDAŞ Ordu Gastronomi Festivali tanıtım afişi', category: 'poster' },
 ]

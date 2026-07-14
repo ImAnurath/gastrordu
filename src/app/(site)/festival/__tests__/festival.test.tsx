@@ -18,4 +18,9 @@ describe('Festival page', () => {
     // YEDAŞ was removed from the festival page in V2 (it only appears in the footer sponsor note now)
     expect(screen.queryByRole('heading', { name: /sponsor/i })).not.toBeInTheDocument()
   })
+
+  it('shows the 2026 key visual poster', () => {
+    render(<Festival />)
+    expect(screen.getByAltText(/YEDAŞ Ordu Gastronomi Festivali 2026 afişi/i)).toBeInTheDocument()
+  })
 })
