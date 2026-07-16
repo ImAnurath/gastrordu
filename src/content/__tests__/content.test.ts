@@ -52,6 +52,15 @@ describe('content modules', () => {
     expect(announcements).toHaveLength(2)
     for (const a of announcements) expect(a.href.startsWith('/')).toBe(true)
   })
+  it('deadlines are valid Turkey-time timestamps with ended copy', () => {
+    for (const a of announcements) {
+      expect(a.deadline).toMatch(/\+03:00$/)
+      expect(Number.isNaN(new Date(a.deadline).getTime())).toBe(false)
+      expect(a.endedTitle).toContain('sona erdi')
+    }
+    expect(yarisma.application.deadline).toMatch(/\+03:00$/)
+    expect(Number.isNaN(new Date(yarisma.application.deadline).getTime())).toBe(false)
+  })
   it('program reflects confirmed schedule facts', () => {
     const titles = program.map(p => `${p.time} ${p.title}`)
     expect(titles).toContain('11:00 Kortej Yürüyüşü')

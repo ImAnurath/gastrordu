@@ -79,15 +79,20 @@ export const news: NewsItem[] = [
 ]
 
 // Homepage "Duyurular" band. Deadline labels live here, not in components.
+// `deadline` is Turkey time; past it the UI shows `endedTitle` automatically.
 export const announcements: Announcement[] = [
   {
     title: 'Ordu Yemekleri Yarışması başvuruları açık',
+    endedTitle: 'Ordu Yemekleri Yarışması başvuruları sona erdi',
+    deadline: '2026-07-24T23:59:59+03:00',
     deadlineLabel: 'Son gün 24 Temmuz',
     href: '/yarisma',
     linkLabel: 'Yarışma Detayları',
   },
   {
     title: 'Stant başvuruları devam ediyor',
+    endedTitle: 'Stant başvuruları sona erdi',
+    deadline: '2026-07-17T18:00:00+03:00', // son başvuru "mesai bitimine kadar"
     deadlineLabel: 'Son gün 17 Temmuz',
     href: '/haberler/stant-basvurulari-basladi',
     linkLabel: 'Duyuruyu Oku',

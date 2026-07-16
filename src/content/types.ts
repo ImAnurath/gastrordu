@@ -26,7 +26,7 @@ export interface YarismaInfo {
   categories: string[];
   prizes: { rank: string; prize: string }[];
   application: {
-    dateLabel: string; deadlineLabel: string; place: string;
+    dateLabel: string; deadlineLabel: string; deadline: string; place: string;
     phone: string; officialSource: string; note: string;
   };
   rules: string[];
@@ -49,4 +49,11 @@ export interface NewsItem {
   cta?: { label: string; href: string }
   attachment?: { label: string; href: string }
 }
-export interface Announcement { title: string; deadlineLabel: string; href: string; linkLabel: string }
+export interface Announcement {
+  title: string
+  endedTitle: string
+  deadline: string // ISO with +03:00 offset; UI flips to endedTitle past this
+  deadlineLabel: string
+  href: string
+  linkLabel: string
+}

@@ -50,6 +50,8 @@ describe('Home page', () => {
   })
 
   it('shows the announcements band with deadline labels', () => {
+    // pin the clock before the first deadline so the band renders "open" copy
+    vi.setSystemTime(new Date('2026-07-15T12:00:00+03:00'))
     render(<Home />)
     expect(screen.getByText(/Son gün 24 Temmuz/)).toBeInTheDocument()
     expect(screen.getByText(/Son gün 17 Temmuz/)).toBeInTheDocument()

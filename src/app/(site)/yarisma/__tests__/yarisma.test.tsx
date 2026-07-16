@@ -1,7 +1,16 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import Yarisma from '../page'
 import { yarisma } from '@/content/yarisma'
+
+// Pin Date only (intervals stay real) — the başvuru heading is deadline-aware.
+beforeEach(() => {
+  vi.useFakeTimers({ toFake: ['Date'] })
+  vi.setSystemTime(new Date('2026-07-15T12:00:00+03:00'))
+})
+afterEach(() => {
+  vi.useRealTimers()
+})
 
 describe('Yarisma page', () => {
   it('renders categories, prizes and download links', () => {
@@ -20,5 +29,13 @@ describe('Yarisma page', () => {
       .toHaveAttribute('href', '/lezzetler')
     expect(screen.getByRole('link', { name: 'ordu.ktb.gov.tr' }))
       .toHaveAttribute('href', 'https://ordu.ktb.gov.tr/')
+  })
+  it('başvuru heading flips to sona erdi after the deadline', () => {
+    render(<Yarisma />)
+    expect(screen.getByText(/Başvurular 24 Temmuz 2026'ya kadar/)).toBeInTheDocument()
+
+    vi.setSystemTime(new Date('2026-07-25T12:00:00+03:00'))
+    render(<Yarisma />)
+    expect(screen.getByText('Başvurular sona erdi')).toBeInTheDocument()
   })
 })

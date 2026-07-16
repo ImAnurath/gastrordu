@@ -20,6 +20,7 @@ export const yarisma: YarismaInfo = {
   application: {
     dateLabel: '13 – 24 Temmuz 2026',
     deadlineLabel: '24 Temmuz 2026',
+    deadline: '2026-07-24T23:59:59+03:00',
     place: 'Ordu İl Kültür ve Turizm Müdürlüğü',
     phone: '0 452 280 17 00',
     officialSource: 'https://ordu.ktb.gov.tr/',

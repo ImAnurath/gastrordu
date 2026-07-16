@@ -2,6 +2,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import { Header } from '@/components/Header'
 import { ImageLightbox } from '@/components/ImageLightbox'
+import { DeadlineText } from '@/components/DeadlineText'
 import { yarisma } from '@/content/yarisma'
 import { festival } from '@/content/festival'
 
@@ -51,7 +52,11 @@ export default function Yarisma() {
         <div className="flex-[1_1_440px]">
           <div className="mb-4 font-heading text-[13px] font-bold tracking-[0.24em] text-coral-deep">BAŞVURU</div>
           <h2 className="mb-[22px] mt-0 font-heading text-[clamp(28px,3.6vw,42px)] font-extrabold leading-[1.1] text-navy">
-            Başvurular {yarisma.application.deadlineLabel}&apos;ya kadar
+            <DeadlineText
+              deadline={yarisma.application.deadline}
+              open={`Başvurular ${yarisma.application.deadlineLabel}'ya kadar`}
+              ended="Başvurular sona erdi"
+            />
           </h2>
           <div className="flex flex-col gap-[18px]">
             <div>
